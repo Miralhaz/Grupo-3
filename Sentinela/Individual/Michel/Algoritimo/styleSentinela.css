@@ -1,0 +1,195 @@
+/* Adicionar aqui toda a estilização criada para sua aplicação. */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif, Tahoma, Geneva, Verdana, sans-serif
+}
+
+:root{
+    --tamanho-header:80px;
+    --tamanho-footer:65px;
+    --tamanho-banner:calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+
+}
+
+.header{
+    height: var(--tamanho-header);
+    border-bottom: 2px solid #2200ff;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    
+}
+
+.titulo{
+    color: #2200ff;
+    width: fit-content;
+    font-weight: 500        ;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    
+}
+
+.header .container{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #2200ff;
+    
+}
+
+.header a{
+    text-decoration: none;
+    color: #2200ff;
+}
+
+.agora {
+    font-weight: 800;
+}
+
+/*BANNER*/
+
+.banner {
+    height: var(--tamanho-banner);
+    color: white;
+    background: linear-gradient(#f7f7f7aa, rgba(148, 157, 253, 0.92)), url(../sentinela/imgs/home.png) center fixed;
+    background-size: cover;
+    
+  
+}
+
+.banner .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+    
+}
+
+
+.banner .container .titulo{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 70px;
+   margin-top: 250px;
+}
+
+.banner .container P{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+
+.banner .container span {
+    font-weight: 800;
+}
+
+/* MISSÃO VISÃO VALORES*/
+
+.social{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.social .container .boxes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 10px;
+   
+}
+
+.boxes{
+     display: flex;
+     justify-content: space-between;
+    align-items: flex-start;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: solid #2200ff;
+    border-radius: 15px;
+    padding: 5px;
+
+    overflow: hidden;
+}
+
+.box p{
+    color: black;
+   font-weight: 500;
+}
+
+.box h4{
+    color: #2200ff;
+    margin-bottom: -10px;
+}
+
+.box:hover{
+    transform: scale(1.01);
+    padding: 10px;
+    transition: ease-in-out 0.2s;
+    border: solid 4px #2200ff;
+    box-shadow: 1px 3px rgb(56, 56, 139);
+    box-shadow: 0 0 8px #2200ff, 0 0 10px #ffffff, 0 0 10px #2200ff;
+}
+
+.tituloBoxes{
+    text-align: center;
+    font-size: 50px;
+    color: #2200ff;
+}
+
+.box img{
+    margin-top: 10%;
+    width: 130px;
+    top: 50%;
+    left: 50%;
+    padding: -5px;
+}   
+
+
+.footer{
+    background-color: #2200ff;
+    height: var(--tamanho-footer);
+    color:white;
+    display: flex;
+    font-size: 15px;
+}
+
+.footer .container{
+    justify-content: center;
+    text-align: center;
+}
+
+.version{
+    font-size: 12px ;
+}
