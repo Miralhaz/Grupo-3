@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    background-color:   white;
+}
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 10%;
+}
+/* HEADER LATERAL */
+section.header .header-lateral{
+    position: fixed;
+    height: 100%;
+    width: 120px;
+    background-color: navy;
+    padding: 20px;
+    text-align: center;
+}
+section.header .header-lateral span{
+    color: white;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+/* INDICADORES */
+section.indicadores{
+    padding: 30px;
+}
+section.indicadores .all-cards{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    justify-content: space-between;
+    gap: 40px;
+}
+section.indicadores .container{
+    padding: 0 0 0 10%;
+}
+.primeiro{
+    display: flex;
+}
+.segundo{
+    display: flex;
+    margin-top: -20px;
+}
+section.indicadores h1{
+    color: navy;
+    font-size: 30px;
+    margin-left: 5px;
+}
+section.indicadores .container-indicador{
+    border: 1px solid rgba(0, 0, 128, 0.479);
+    box-shadow: 0px 4px 4px rgba(0, 0, 128, 0.555);
+    border-radius: 5px;
+    height: 100px;
+    width: 270px;
+    margin-right: 30px;
+}
+section.indicadores .container-indicador h3{
+    font-weight: 500;
+    margin-left: 12px;
+}
+section.indicadores .container-indicador .text{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 0px 10px;
+}
+section.indicadores .container-indicador .text span{
+    font-size: 28px;
+    color: navy;
+}
+section.indicadores .container-indicador p{
+    color: rgba(0, 0, 0, 0.644);
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+}
+
+/* GRÁFICOS */
+section.bar .grafico-bar{
+    position: relative; 
+    width:550px;
+    margin-right: 60px;
+}
+section.line .grafico-line{
+    position: relative;
+    width: 550px;
+}
+.first-combo-graficos{
+    display: flex;
+    padding: 0px 0 0 100px;
+}
+section.pizza {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+section.pizza .grafico-pizza{
+    position: relative;
+    width: 450px;
+    height: 300px;
+}
+
+/* ESTÉTICA MELHOR */
+.linha-separacao{
+    width: 85%;
+    background-color: navy;
+    height: 1px;
+    margin-top: 10px;
+    margin-left: 140px;
+}

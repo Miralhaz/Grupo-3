@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>DASHBOARD | Sentinela</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="header">
+        <div class="header-lateral">
+            <div class="barra">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+            <div class="seta-down">
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </div>
+            <div class="info">
+                <span class="material-symbols-outlined">info</span>
+            </div>
+        </div>
+    </section>
+    <section class="indicadores">
+        <div class="container">
+            <h1>DashBoard | Sentinela</h1>
+
+            <section class="pizza">
+                <div class="grafico-pizza">
+                    <canvas id="grafico-pizza" class="chart-container"></canvas>
+                </div>
+            </section>
+
+            <div class="all-cards">
+                <div class="primeiro">
+                    <div class="container-indicador">
+                        <p>Mês com Maior Incidente de Alerta</p>
+                        <div class="text">
+                            <span class="material-symbols-outlined">warning</span>
+                            <h1>Janeiro</h1>
+                        </div>
+                        <h3>290 Alertas</h3>
+                    </div>
+                    <div class="container-indicador">
+                        <p>Percentual de Veículos com Alerta</p>
+                        <div class="text">
+                            <span class="material-symbols-outlined">warning</span>
+                            <h1>47,65%</h1>
+                        </div>
+                        <h3>Total de 1870 Veículos</h3>
+                    </div>
+                </div>
+                <div class="segundo">
+                    <div class="container-indicador">
+                        <p>Temperatura Média das Frotas</p>
+                        <div class="text">
+                            <span class="material-symbols-outlined">warning</span>
+                            <h1>3,5Cº</h1>
+                        </div>
+                        <h3>54,32% | 100 Veículos</h3>
+                    </div>
+                    <div class="container-indicador">
+                        <p>Maior desvio de Temperatura</p>
+                        <div class="text">
+                            <span class="material-symbols-outlined">warning</span>
+                            <h1>8,32Cº</h1>
+                        </div>
+                        <h3>Acarretou 200 Alertas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="linha-separacao"></div>
+    </section>
+    <div class="first-combo-graficos">
+        <section class="bar">
+            <div class="container">
+                <div class="grafico-bar">
+                    <canvas id="myChart" class="chart-container"></canvas>
+                </div>
+            </div>
+        </section>
+        <section class="line">
+            <div class="container">
+                <div class="grafico-line">
+                    <canvas id="chart-line" class="chart-container"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
