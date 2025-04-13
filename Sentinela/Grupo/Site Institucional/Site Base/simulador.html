@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Financeiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Site Base/CSS/styleSimulador.css">
+</head>
+
+<body>
+        <header class="header">
+          <div class="container">
+            <h1>Sentinela</h1>
+            <ul class="navbar">
+                <li >
+                  <a href="index.html">Inicial</a>
+                </li>
+                <li class="agora">
+                  <a href="#">Simulador</a>
+                </li>
+                <li>|</li>
+                <li>
+                  <a href="while.html">Login</a>
+                </li>
+                <li>
+                  <a href="cadastro.html">Cadastro</a>
+                </li>
+              </ul>
+          </div>
+        </header>
+
+    <main>
+        <section>
+            <h2>Simulador Financeiro</h2>
+            <p>Com o nosso simulador, visualize ganhos e perdas com clareza.</p>
+        </section>
+
+        <section>
+            <h2>Dados da Operação</h2>
+            <label>Volume de Carne (ton/mês)</label><br>
+            <input type="number" id="Volume_tonelada"><br>
+
+            <label>Preço Médio da Carne (R$/kg)</label><br>
+            <input type="number" id="Preco_carne"><br>
+
+            <label>Taxa Anual de Perdas (%)</label><br>
+            <input type="number" id="taxa_perda"><br>
+
+            <label>Quantidade de Rotas (mês)</label><br>
+            <input type="number" id="viagens_mes"><br>
+
+            <button onclick="Calcular()">Calcular Economia</button>
+        </section>
+
+        <section>
+            <h2>Resultados</h2>
+            <div class="resultado">
+                <p><strong>Economia Mensal:</strong> <span id="Resultado_Economia_mes"></span></p>
+                <p><strong>Economia Anual:</strong> <span id="Resultado_Economia_ano"></span></p>
+                <p><strong>Redução de Perdas:</strong> <span id="Resultado_perda"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h4>Desenvolvido por &hearts; Sentinela Group &copy; 2025</h4> <br>
+          <span class="version">v1.0.0</span>
+    </footer>
+</body>
+<script>
+    function Calcular() {
+        var kilos = Number(Volume_tonelada.value) * 1000
+        var precoCarne = Number(Preco_carne.value)
+        var taxaPerdas = (Number(taxa_perda.value) / 12) / 100
+        var dinheiroPerdido = (kilos * taxaPerdas) * precoCarne
+        var toneladasPerdidas = (((kilos / 1000) * taxaPerdas) * 12).toFixed(2)
+
+        Resultado_Economia_mes.innerHTML = "R$: " + dinheiroPerdido.toFixed(2)
+        Resultado_Economia_ano.innerHTML = "R$: " + (dinheiroPerdido * 12).toFixed(2)
+        Resultado_perda.innerHTML = `${toneladasPerdidas} ton/ano`
+
+        produto_perdido.innerHTML = `${toneladasPerdidas} ton/ano`
+        dinheiro_perdido.innerHTML = (dinheiroPerdido * 12).toFixed(2) + " ano"
+        multas.innerHTML = "R$: " + (((viagens_mes.value * 0.15) * 12) * 5000).toFixed(2)
+        tempo.innerHTML = (toneladasPerdidas * 24).toFixed(2) + " mês"
+        total.innerHTML = ((dinheiroPerdido * 12) + (((viagens_mes.value * 0.15) * 12) * 5000)).toFixed(2)
+    }
+</script>
+</script>
+
+</html>

@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+  }
+
+  /*Parte de cima do site (Michel)*/
+  
+  :root{
+    --tamanho-header:80px;
+    --tamanho-footer:65px;
+    --tamanho-banner:calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+
+}
+
+.header{
+    height: var(--tamanho-header);
+    border-bottom: 2px solid #0057d9;
+    position: fixed;
+    background-color: whitesmoke;
+    width: 100%;
+    order: 1;
+}
+
+.header .container .titulo{
+    color: #0057d9;
+    text-shadow: #222;
+}
+
+.header .container .tituloBanner{
+  color: #0057d9;
+  text-shadow: #222;
+}
+
+
+.container{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.header .container{
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #0057d9;
+}
+
+.header a{
+  text-decoration: none;
+  color: #0057d9;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+/*BANNER*/
+
+.banner {
+  height: var(--tamanho-banner);
+  color: white;
+  background: linear-gradient(#f7f7f738, rgba(87, 101, 255, 0.92)), url(../imgs/home.png) center fixed;
+  background-size: cover;
+}
+
+.banner .container .tituloBanner{
+    color: #0057d9;
+    width: fit-content;
+    font-weight: 900;
+    margin-top: 165px;
+    font-size: xx-large;
+}
+
+.banner .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+    
+}
+
+
+.banner .container .titulo{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 70px;
+   margin-top: 250px;
+}
+
+.banner .container P{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+
+.banner .container span {
+    font-weight: 800;
+}
+
+.social{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.social .container .boxes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 10px;
+   
+}
+
+.boxes{
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+    border: solid #0057d9;
+    border-radius: 15px;
+    padding: 5px;
+
+    overflow: hidden;
+}
+
+.box p{
+    color: black;
+   font-weight: 500;
+}
+
+.box h4{
+    color: #0057d9;
+    margin-bottom: 10px;
+}
+
+
+
+.tituloBoxes{
+    text-align: center;
+    font-size: 50px;
+    color: #0057d9;
+}
+
+.box img{
+    margin-top: 10%;
+    width: 130px;
+    top: 50%;
+    left: 50%;
+    padding: -5px;
+}   
+
+ 
+/*Parte de texto do site (Breno)*/
+  
+  section {
+    background-color: whitesmoke;
+    padding: 60px;
+    text-align: center;
+    border-bottom: 2px #0057d9;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #0057d9;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 250px;
+  }
+  
+  .card h3 {
+    color: #0057d9;
+    margin-bottom: 10px;
+  }
+
+  .card p{
+    color: #222;
+
+  }
+  
+  .stats {
+    background: #0057d9;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .stat {
+    margin: 10px;
+  }
+  
+  .stat h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  
+  .contato-form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  .contato-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .contato-form input,
+  .contato-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #222;
+    border-radius: 4px;
+  }
+  
+  .contato-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #0057d9;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .footer {
+    background-color: #0057d9;
+    padding: 20px 20px;
+  }
+
+  .footer h4{
+    margin-left: 40%;
+  }
+
+  .footer span{
+    margin-left: 50%;
+  }
