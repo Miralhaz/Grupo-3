@@ -246,7 +246,7 @@
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
-    color: #222;
+    color: #0057d9;
   }
   
   .contato-form input,
@@ -267,6 +267,18 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+  }
+
+  input:focus {
+    border: 2px solid #003f7f;
+    box-shadow: 0 0 5px 2px #0057d9;
+    outline: none;
+  }
+
+  textarea:focus{
+      border: 2px solid #003f7f;
+      box-shadow: 0 0 5px 2px #0057d9;
+      outline: none;
   }
 
   .footer {

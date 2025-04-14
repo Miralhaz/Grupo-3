@@ -101,4 +101,134 @@ body {
     text-align: center;
     padding: 1em;
   }
+
+  /*Parte de Login e cadastro*/
   
+  /*Login (Gui silva)*/
+
+section.tela-login{
+  padding: 60px;
+  margin-top: 60px;
+  height: 90vh;
+}
+.login{
+  background-color: #0057d9;
+  padding: 20px;
+}
+.login #tituloOculto{
+  opacity: 100%;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s;
+}
+.corpo-login {
+  display: flex;
+  height: 500px;
+  width: 100%;
+  border: solid 1px #0057d9;
+  border-radius: 15px;
+  box-shadow: 0px 8px 8px #0057d9;
+  overflow: hidden;
+}
+.imagem-login h1{
+  position: absolute;
+  color: white;
+  font-weight: 500;
+  font-size: 70px;
+  margin-top: -100px;
+}
+.imagem-login p{
+  position: absolute;
+  color: white;
+  margin-top: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.imagem-login span{
+  display: flex;
+  font-size: 17px;
+  font-weight: 300;
+}
+.imagem-login {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-login img {
+  width: 100%;
+  height: 100%;
+}
+.texto-login {
+  width: 50%;
+  padding: 40px;
+  background-color: white;
+}
+.texto-login label{
+  display: block;
+  color: #0057d9;
+  font-size: 20px;
+}
+.texto-login h1{
+  font-size: 50px;
+  color: #0057d9;
+}
+.texto-login input{
+  height: 40px;
+  width: 400px;
+  margin-bottom: 10px;
+  border: 1px solid #0057d9;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 17px;
+  border-color: #002f5f
+}
+
+input:focus {
+  border: 2px solid #003366;
+  box-shadow: 0 0 5px 2px #0057d9;
+  outline: none;
+}
+
+.imagem-login button{
+  position: absolute;
+  width: 400px;
+  height: 60px;
+  font-size: 20px;
+  margin-top: 10px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  transition: 0.3s;
+  margin-top: 280px;
+}
+.imagem-login button:hover{
+  background-color: #0057d9;
+  color: white;
+  border: 1px solid #0057d9;
+  transform: scale(1.05);
+}
+.imagem-login a{
+  position: absolute;
+  text-align: center;
+  margin-left: 0px;
+  margin-top: 400px;
+  color: white;
+}
+
+/*Cadastro (Gui silva)*/
+
+.corpo-cadastro {
+  display: flex;
+  height: 550px;
+  width: 100%;
+  border: solid 1px #0057d9;
+  border-radius: 15px;
+  box-shadow: 0px 8px 8px #0057d9;
+  overflow: hidden;
+}
