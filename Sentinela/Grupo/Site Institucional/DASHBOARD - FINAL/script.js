@@ -6,7 +6,7 @@ new Chart(ctx, {
         labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'
         ],
         datasets: [{
-            label: 'Número de Alertas em 2025',
+            label: 'Número de Alertas na Semana',
             data: [2, 3, 0, 4, 2,1],
             borderWidth: 1,
             backgroundColor: 'navy'
