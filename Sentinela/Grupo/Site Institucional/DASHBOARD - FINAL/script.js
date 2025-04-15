@@ -9,7 +9,7 @@ new Chart(ctx, {
             label: 'Número de Alertas em 2025',
             data: [2, 3, 0, 4, 2,1],
             borderWidth: 1,
-            backgroundColor: 'navy'
+            backgroundColor: '#0057d9'
         }]
     },
     options: {
@@ -33,15 +33,15 @@ new Chart(ctz, {
             label: 'Sensor Dianteiro',
             data: [-3, -2, 2, 0, 1, -1, -2, 0, 3.3, -2, 1, 1.5],
             borderWidth: 1,
-            borderColor: 'navy',
-            backgroundColor: 'navy'
+            borderColor: '#0057d9',
+            backgroundColor: '#0057d9'
         },
         {
         label: 'Sensor Traseiro',
         data: [1.5, 1, -2, 3.3, 4, 3.2, 5.3, 1, 0, -3, 0, 3],
         borderWidth: 1,
-        borderColor: '#ab070d',
-        backgroundColor: '#ab070d'
+        borderColor: '#FF0000',
+        backgroundColor: '#FF0000'
     }]
     },
     options: {
@@ -65,9 +65,9 @@ new Chart(cty, {
             data: [4, 6, 2],
             borderWidth: 1,
             backgroundColor: [
-                'navy',
+                '#0057d9',
                 '#fea42e',
-                '#ab070d'
+                '#FF0000'
             ],
             borderColor: 'white',
             hoverOffset: 10

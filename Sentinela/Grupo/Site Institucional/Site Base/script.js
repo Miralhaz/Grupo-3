@@ -1,8 +1,8 @@
 //MÉTODO DE LOGIN
 
 function logarUsuario() {
-    var emailBD = 'guilherme.soliveira@sptech.school';
-    var senhaBD = 'Sptech#2024';
+    var emailBD = 'sentinela@sptech.school';
+    var senhaBD = '12345';
 
     var emailLogin = ipt_email_login.value;
     var senhaLogin = ipt_senha_login.value;
@@ -46,7 +46,7 @@ function logarUsuario() {
             div_erro_logar.innerHTML = '';
             div_login_feito.innerHTML = 'Login bem sucedido!!'
             setTimeout(function () {
-                window.location.href = 'dashboard.html'
+                window.location.href = '../DASHBOARD - FINAL/index.html'
             }, 2000);
             break;
         } else {

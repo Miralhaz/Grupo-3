@@ -32,12 +32,13 @@
         </header>
 
     <main>
+
         <section>
             <h2>Simulador Financeiro</h2>
             <p>Com o nosso simulador, visualize ganhos e perdas com clareza.</p>
         </section>
-
-        <section>
+<div class="all">
+        <section class="dadosOperacao">
             <h2>Dados da Operação</h2>
             <label>Volume de Carne (ton/mês)</label><br>
             <input type="number" id="Volume_tonelada"><br>
@@ -54,7 +55,7 @@
             <button onclick="Calcular()">Calcular Economia</button>
         </section>
 
-        <section>
+        <section class="resultados">
             <h2>Resultados</h2>
             <div class="resultado">
                 <p><strong>Economia Mensal:</strong> <span id="Resultado_Economia_mes"></span></p>
@@ -62,6 +63,7 @@
                 <p><strong>Redução de Perdas:</strong> <span id="Resultado_perda"></span></p>
             </div>
         </section>
+      </div>
     </main>
 
     <footer>
