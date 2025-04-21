@@ -148,7 +148,7 @@ section.legenda .negativo h1{
     font-size: 30px;
 }
 
-/* DASHBOARD INDIVIDUAL */
+/* DASHBOARD */
 section.indicadores .text{
     display: flex;
     color: #0057d9;
@@ -191,9 +191,18 @@ section.bar .grafico-bar{
     width:550px;
     margin-right: 60px;
 }
+
+section.line h3.tituloLinha {
+    color: #0057d9;
+    margin-top: 0px;
+    text-align: center;
+    font-size:larger;
+}
+
 section.line .grafico-line{
     position: relative;
     width: 550px;
+    transform: scale(0.9);
 }
 .first-combo-graficos{
     display: flex;
@@ -204,10 +213,16 @@ section.pizza {
     right: 20px;
     top: 20px;
 }
+
+section.indicadores .container h3.tituloPizza {
+    color: #0057d9;
+}
+
 section.pizza .grafico-pizza{
     position: relative;
     width: 450px;
     height: 300px;
+    transform: scale();
 }
 
 /* ESTÉTICA MELHOR */
@@ -216,8 +231,7 @@ section.pizza .grafico-pizza{
     background-color: #0057d9;
     height: 1px;
     margin-left: 750px;
-    margin-top: -20px;
-    margin-bottom: 30px;
+    margin-bottom: 6px;
 }
 
 /* INFORMAÇÕES ADICIONAIS */
