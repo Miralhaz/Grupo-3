@@ -3,11 +3,11 @@ const ctx = document.getElementById('myChart');
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'
+        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'
         ],
         datasets: [{
             label: 'Número de Alertas na Semana',
-            data: [2, 3, 0, 4, 2,1],
+            data: [2, 3, 0, 4, 2, 1, 1],
             borderWidth: 1,
             backgroundColor: '#0057d9'
         }]

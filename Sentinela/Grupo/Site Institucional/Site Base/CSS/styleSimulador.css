@@ -132,8 +132,9 @@ body {
 
 section.tela-login{
   padding: 60px;
-  margin-top: 60px;
+  margin-top: 40px;
   height: 90vh;
+  
 }
 .login{
   background-color: #0057d9;
@@ -249,7 +250,7 @@ input:focus {
 
 .corpo-cadastro {
   display: flex;
-  height: 550px;
+  height: 520px;
   width: 100%;
   border: solid 1px #0057d9;
   border-radius: 15px;
