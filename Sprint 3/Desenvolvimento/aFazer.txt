@@ -1,0 +1,5 @@
+
+
+WEB-DATA-VIZ  -  GRUPO SENTINELA
+
+Login e cadastro implementados, precisamos arrumar o css, validçãoes dos inputs no login e cadastro e arrumar nossa dashboard.
