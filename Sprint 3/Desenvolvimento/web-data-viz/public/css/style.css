@@ -596,7 +596,7 @@ section.tela-login{
 
 .corpo-cadastro {
     display: flex;
-    height: 550px;
+    height: 600px;
     width: 100%;
     border: solid 1px rgba(0, 0, 128, 0.473);
     border-radius: 15px;
