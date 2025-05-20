@@ -20,6 +20,7 @@ function obterdados(idAquario) {
 
 }
 
+// da pra reutilizar isso aqui
 function alertar(resposta, idAquario) {
     var temp = resposta[0].temperatura;
 

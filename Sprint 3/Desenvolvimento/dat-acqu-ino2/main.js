@@ -11,85 +11,62 @@ const SERVIDOR_PORTA = 3300;
 const HABILITAR_OPERACAO_INSERIR = true;
 
 // função para comunicação serial
-const serial = async (
-    valoresSensorAnalogico
-) => {
-
+const serial = async (valoresSensorAnalogico) => {
     // conexão com o banco de dados MySQL
-    let poolBancoDados = mysql.createPool(
-        {
-            host: '127.0.0.1',
-            user: 'aluno',
-            password: 'Sptech#2024',
-            database: 'sentinela',
-            port: 3307
-        }
-    ).promise();
+    let poolBancoDados = mysql.createPool({
+        host: '127.0.0.1',
+        user: 'aluno',
+        password: 'Sptech#2024',
+        database: 'sentinela',
+        port: 3307
+    }).promise();
 
     // lista as portas seriais disponíveis e procura pelo Arduino
     const portas = await serialport.SerialPort.list();
     const portaArduino = portas.find((porta) => porta.vendorId == 2341 && porta.productId == 43);
+
     if (!portaArduino) {
         throw new Error('O arduino não foi encontrado em nenhuma porta serial');
     }
 
     // configura a porta serial com o baud rate especificado
-    const arduino = new serialport.SerialPort(
-        {
-            path: portaArduino.path,
-            baudRate: SERIAL_BAUD_RATE
-        }
-    );
+    const arduino = new serialport.SerialPort({
+        path: portaArduino.path,
+        baudRate: SERIAL_BAUD_RATE
+    });
 
     // evento quando a porta serial é aberta
     arduino.on('open', () => {
         console.log(`A leitura do arduino foi iniciada na porta ${portaArduino.path} utilizando Baud Rate de ${SERIAL_BAUD_RATE}`);
     });
 
+    let contadorSensor = 1;
+
     // processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
-        console.log(data);
-        // const valores = data.split(';');
-        /* const sensorDigital = parseInt(valores[0]); */
-        //const sensorAnalogico = parseFloat(valores[1]);
-        const sensorAnalogico = parseFloat(data);
+        console.log(`Dados recebidos do Arduino: [${data}]`);
 
-        // armazena os valores dos sensores nos arrays correspondentes
+        const dadoLimpo = data.trim();
+        const sensorAnalogico = parseFloat(dadoLimpo);
         valoresSensorAnalogico.push(sensorAnalogico);
-        /* valoresSensorDigital.push(sensorDigital); */
 
-        let contadorSensor = 1;
-
-        // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
-            // este insert irá inserir os dados na tabela "dado_arduino"
             await poolBancoDados.execute(
                 `INSERT INTO dado_arduino (temperatura, data_hora, fk_sensor) VALUES (?, NOW(), ?)`,
                 [sensorAnalogico, contadorSensor]
             );
+            console.log(`Inserido no banco: ${sensorAnalogico}, no sensor: ${contadorSensor}`);
 
             contadorSensor++;
-            if (contadorSensor > 60) contadorSensor = 1;
-
-            console.log("valores inseridos no banco: ", sensorAnalogico);
-            
-            if (sensorAnalogico >= 0 && sensorAnalogico <= 2) {
-                await poolBancoDados.execute
+            if (contadorSensor > 60) {
+                contadorSensor = 1;
             }
         }
     });
-
-    // evento para lidar com erros na comunicação serial
-    arduino.on('error', (mensagem) => {
-        console.error(`Erro no arduino (Mensagem: ${mensagem}`)
-    });
-}
+};
 
 // função para criar e configurar o servidor web
-const servidor = (
-    valoresSensorAnalogico
-    /*valoresSensorDigital*/
-) => {
+const servidor = (valoresSensorAnalogico) => {
     const app = express();
 
     // configurações de requisição e resposta
@@ -104,30 +81,16 @@ const servidor = (
         console.log(`API executada com sucesso na porta ${SERVIDOR_PORTA}`);
     });
 
-    // define os endpoints da API para cada tipo de sensor
+    // define os endpoints da API
     app.get('/sensores/analogico', (_, response) => {
         return response.json(valoresSensorAnalogico);
     });
-    /*app.get('/sensores/digital', (_, response) => {
-        return response.json(valoresSensorDigital);
-    });*/
-}
+};
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
-    // arrays para armazenar os valores dos sensores
     const valoresSensorAnalogico = [];
-    /*const valoresSensorDigital = [];*/
 
-    // inicia a comunicação serial
-    await serial(
-        valoresSensorAnalogico,
-        /*valoresSensorDigital*/
-    );
-
-    // inicia o servidor web
-    servidor(
-        valoresSensorAnalogico,
-        /*valoresSensorDigital*/
-    );
+    await serial(valoresSensorAnalogico);
+    servidor(valoresSensorAnalogico);
 })();
