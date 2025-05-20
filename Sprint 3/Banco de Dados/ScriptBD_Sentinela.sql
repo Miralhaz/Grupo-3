@@ -1,16 +1,16 @@
 
+
 CREATE DATABASE sentinela;
 USE sentinela;
 
 -- Tabela de empresas clientes
 CREATE TABLE empresa_cliente (
-    idEmpresa INT PRIMARY KEY,
+    idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     token INT UNIQUE,
     nome_empresa VARCHAR(50) NOT NULL,
     CNPJ VARCHAR(20)   UNIQUE,
     CEO VARCHAR(50)
 );
-
 
 CREATE TABLE gestores (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE gestores (
     email VARCHAR(100),
     senha VARCHAR(20),
     cpf char(11),
-    fkToken int,
+    fk_token int,
     FOREIGN KEY (fk_token) REFERENCES empresa_cliente(token)
 );
 
@@ -31,9 +31,6 @@ CREATE TABLE motorista (
     FOREIGN KEY (fk_empresa) REFERENCES empresa_cliente(idEmpresa)
 );
 
-
-
-
 CREATE TABLE veiculo (
     idVeiculo INT PRIMARY KEY AUTO_INCREMENT,
     placa VARCHAR(8)  UNIQUE,
@@ -45,9 +42,6 @@ CREATE TABLE veiculo (
     FOREIGN KEY (fk_motorista) REFERENCES motorista(idMotorista)
 );
 
-
-
-
 CREATE TABLE sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
     status VARCHAR(45),
@@ -55,7 +49,6 @@ CREATE TABLE sensor (
     fk_veiculo INT,
     FOREIGN KEY (fk_veiculo) REFERENCES veiculo(idVeiculo)
 );
-
 
 CREATE TABLE dado_arduino (
     idDado_Arduino INT PRIMARY KEY AUTO_INCREMENT,
@@ -65,28 +58,19 @@ CREATE TABLE dado_arduino (
     FOREIGN KEY (fk_sensor) REFERENCES sensor(idSensor)
 );
 
-
-CREATE TABLE alertas (
-    idAlerta INT PRIMARY KEY AUTO_INCREMENT,
-    data_alerta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    descricao_alerta VARCHAR(50),
-    fk_dado INT,
-    FOREIGN KEY (fk_dado) REFERENCES dado_arduino(idDado_Arduino)
-);
-
 USE sentinela;
 
-INSERT INTO empresa_cliente (idEmpresa , token, nome_empresa, CNPJ, CEO) VALUES
-('1', '100', 'Transportes Boa Estrada', '12345678000101', 'Carlos Albuquerque'),  -- NÃO ESQUECER DE COLOCAR O IDEMPRESA E O TOKEN MANUALMENTE
-('Carga Pesada Express', '23456789000102', 'Fernanda Oliveira'),
-('Logística Nacional', '34567890000103', 'Roberto Nascimento'),
-('Frete Rápido', '45678901000104', 'Patrícia Santos'),
-('TransOlho Vivo', '56789012000105', 'Ricardo Ferreira'),
-('Transportes Verde', '67890123000106', 'Juliana Costa'),
-('Caminhões Rei', '78901234000107', 'Marcos Silveira'),
-('Rodovias Seguras', '89012345000108', 'Ana Paula Lima'),
-('Frota Pesada', '90123456000109', 'Lucas Mendes'),
-('Transportadora Estrela', '01234567000110', 'Eduardo Pereira');
+INSERT INTO empresa_cliente (token, nome_empresa, CNPJ, CEO) VALUES
+(100 ,'Picanha para todos LTDA',  '12345678000101', 'Carlos Albuquerque'),  -- NÃO ESQUECER DE COLOCAR O IDEMPRESA E O TOKEN MANUALMENTE
+(200 ,'Carga Pesada Express', '23456789000102', 'Fernanda Oliveira'),
+(300 ,'Logística Nacional', '34567890000103', 'Roberto Nascimento'),
+(400 ,'Frete Rápido', '45678901000104', 'Patrícia Santos'),
+(500 ,'TransOlho Vivo', '56789012000105', 'Ricardo Ferreira'),
+(600 ,'Transportes Verde', '67890123000106', 'Juliana Costa'),
+(700 ,'Caminhões Rei', '78901234000107', 'Marcos Silveira'),
+(800 ,'Rodovias Seguras', '89012345000108', 'Ana Paula Lima'),
+(900 ,'Frota Pesada', '90123456000109', 'Lucas Mendes'),
+(1000, 'Transportadora Estrela', '01234567000110', 'Eduardo Pereira');
 
 INSERT INTO motorista (nome, cpf, telefone, fk_empresa) VALUES
 -- Empresa 1 (4 motoristas)
@@ -390,6 +374,7 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 ('manutencao', '2023-09-03', 69),
 ('ativo', '2023-09-08', 70);
 
+/*
 -- Inserindo 10 leituras de temperatura para um sensor no sensor ID 1
 INSERT INTO dado_arduino (temperatura, fk_sensor, data_hora) VALUES
 (1.2, 1,default ),
@@ -402,7 +387,9 @@ INSERT INTO dado_arduino (temperatura, fk_sensor, data_hora) VALUES
 (0.5, 1, default),
 (3.8, 1,default),
 (4.9, 1,default);
+*/
 
+/*
 -- Inserindo alertas automaticamente para temperaturas críticas
 INSERT INTO alertas (descricao_alerta, fk_dado)
 SELECT 
@@ -419,7 +406,8 @@ WHERE
     AND (temperatura BETWEEN 0 AND 4) ;
 
 SELECT * FROM ALERTAS;
-
+*/
+/*
 -- ----------------------------------- VIEWS -----------------
 select * from motoristas;
 select * from veiculo;
@@ -468,6 +456,8 @@ INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa
 WHERE v.fk_motorista IS NULL;
 
 
+select * from dado_arduino;
 
+select * from alertas;
 
-
+*/
