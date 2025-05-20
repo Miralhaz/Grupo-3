@@ -4,7 +4,8 @@ USE sentinela;
 
 -- Tabela de empresas clientes
 CREATE TABLE empresa_cliente (
-    idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+    idEmpresa INT PRIMARY KEY,
+    token INT UNIQUE,
     nome_empresa VARCHAR(50) NOT NULL,
     CNPJ VARCHAR(20)   UNIQUE,
     CEO VARCHAR(50)
@@ -12,13 +13,13 @@ CREATE TABLE empresa_cliente (
 
 
 CREATE TABLE gestores (
-    token_gestor INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45),
-    sobrenome VARCHAR(45),
-    email VARCHAR(50),
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    email VARCHAR(100),
     senha VARCHAR(20),
-    fk_empresa INT,
-    FOREIGN KEY (fk_empresa) REFERENCES empresa_cliente(idEmpresa)
+    cpf char(11),
+    fkToken int,
+    FOREIGN KEY (fk_token) REFERENCES empresa_cliente(token)
 );
 
 CREATE TABLE motorista (
@@ -75,8 +76,8 @@ CREATE TABLE alertas (
 
 USE sentinela;
 
-INSERT INTO empresa_cliente (nome_empresa, CNPJ, CEO) VALUES
-('Transportes Boa Estrada', '12345678000101', 'Carlos Albuquerque'),
+INSERT INTO empresa_cliente (idEmpresa , token, nome_empresa, CNPJ, CEO) VALUES
+('1', '100', 'Transportes Boa Estrada', '12345678000101', 'Carlos Albuquerque'),  -- NÃO ESQUECER DE COLOCAR O IDEMPRESA E O TOKEN MANUALMENTE
 ('Carga Pesada Express', '23456789000102', 'Fernanda Oliveira'),
 ('Logística Nacional', '34567890000103', 'Roberto Nascimento'),
 ('Frete Rápido', '45678901000104', 'Patrícia Santos'),
