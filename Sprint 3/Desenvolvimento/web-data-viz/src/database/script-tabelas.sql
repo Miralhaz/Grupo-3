@@ -26,7 +26,7 @@ CREATE TABLE gestores (
     email VARCHAR(100),
     senha VARCHAR(20),
     cpf char(11),
-    fkToken VARCHAR(50),
+    fkToken int,
     FOREIGN KEY (fk_token) REFERENCES empresa_cliente(token)
 );
 
@@ -84,8 +84,8 @@ CREATE TABLE alertas (
 
 USE sentinela;
 
-INSERT INTO empresa_cliente (nome_empresa, CNPJ, CEO) VALUES
-('Transportes Boa Estrada', '12345678000101', 'Carlos Albuquerque'),
+INSERT INTO empresa_cliente (idEmpresa , token, nome_empresa, CNPJ, CEO) VALUES
+('1', '100', 'Transportes Boa Estrada', '12345678000101', 'Carlos Albuquerque'),  -- NÃO ESQUECER DE COLOCAR O IDEMPRESA E O TOKEN MANUALMENTE
 ('Carga Pesada Express', '23456789000102', 'Fernanda Oliveira'),
 ('Logística Nacional', '34567890000103', 'Roberto Nascimento'),
 ('Frete Rápido', '45678901000104', 'Patrícia Santos'),

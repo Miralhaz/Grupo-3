@@ -115,7 +115,7 @@
         ) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
-                "(Preencha todos os campos)";
+                "Preencha todos os campos!";
 
             finalizarAguardar();
             return false;
@@ -173,7 +173,7 @@
         break;
       } else {
         cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        mensagem_erro.innerHTML = "Código de ativação inválido!";
         finalizarAguardar();
       }
     }
@@ -213,6 +213,8 @@
                     limparFormulario();
                     finalizarAguardar();
                 } else {
+                    mensagem_erro.innerHTML = "Erro ao cadastrar! Verifique se o código de ativação (token) é válido!";
+                        
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
