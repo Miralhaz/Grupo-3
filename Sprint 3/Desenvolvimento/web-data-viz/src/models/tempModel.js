@@ -1,23 +1,28 @@
 var database = require("../database/config");
 
-function buscarAlertaAtencao(req,res) {
-
-  var instrucaoSql = `SELECT temperatura FROM dado_arduino where temperatura between in (0,2); `;
-
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+function buscarAlertaAtencao(temperatura) {
+  var instrucaoSql = `
+    SELECT temperatura FROM dado_arduino WHERE temperatura = ${temperatura} AND temperatura BETWEEN 0 AND 2;
+  `;
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(empresaId, descricao) {
-  
-  var instrucaoSql = `INSERT INTO (descricao, fk_empresa) aquario VALUES (${descricao}, ${empresaId})`;
-
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+function buscarAlertaRisco(temperatura) {
+  var instrucaoSql = `
+    SELECT temperatura FROM dado_arduino WHERE temperatura = ${temperatura} AND temperatura > 2 AND temperatura <= 4;
+  `;
   return database.executar(instrucaoSql);
 }
 
+function buscarAlertaCritico(temperatura) {
+  var instrucaoSql = `
+    SELECT temperatura FROM dado_arduino WHERE temperatura = ${temperatura} AND temperatura > 4;
+  `;
+  return database.executar(instrucaoSql);
+}
 
 module.exports = {
-  buscarAquariosPorEmpresa,
-  cadastrar
+  buscarAlertaAtencao,
+  buscarAlertaCritico,
+  buscarAlertaRisco
 }

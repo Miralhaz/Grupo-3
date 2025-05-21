@@ -1,6 +1,6 @@
 var alertas = [];
 
-function obterdados(idAquario) {
+function obterDados(idAquario) {
     fetch(`/medidas/tempo-real/${idAquario}`)
         .then(resposta => {
             if (resposta.status == 200) {
