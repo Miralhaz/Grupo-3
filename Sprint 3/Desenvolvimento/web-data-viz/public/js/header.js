@@ -41,4 +41,3 @@ function Calcular(){
     CO2.innerHTML = `${(toneladas_perdidas * 4.5).toFixed(2)} ton de CO²`
     agua.innerHTML = `${((kilos/1000) * 15.5).toFixed(2)} ton`
 }
-

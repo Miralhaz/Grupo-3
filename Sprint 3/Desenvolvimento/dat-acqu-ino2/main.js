@@ -58,7 +58,7 @@ const serial = async (valoresSensorAnalogico) => {
             console.log(`Inserido no banco: ${sensorAnalogico}, no sensor: ${contadorSensor}`);
 
             contadorSensor++;
-            if (contadorSensor > 60) {
+            if (contadorSensor > 36) {
                 contadorSensor = 1;
             }
         }
