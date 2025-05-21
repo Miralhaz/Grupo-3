@@ -110,10 +110,16 @@
                     sessionStorage.ID_USUARIO = json.id;
                    
 
-                    setTimeout(function () {
-                        window.location = "./dashboard/index.html";
+                    if(sessionStorage.ID_USUARIO==1){
+                        setTimeout(function () {
+                        window.location = "./dashboard/n3.html";
+                    }, 1000); // apenas para exibir o loading
+                    } else{
+                        setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
                     }, 1000); // apenas para exibir o loading
 
+                    }
                 });
 
             } else {
