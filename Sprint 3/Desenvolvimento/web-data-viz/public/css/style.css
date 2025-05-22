@@ -20,7 +20,7 @@ section.header .header-lateral{
     position: fixed;
     height: 100%;
     width: 120px;
-    background-color: #0057d9;
+    background-color: navy;
     padding: 20px;
     text-align: center;
 
@@ -48,12 +48,12 @@ section.header .caminhoes-option{
 }
 
 section.header .caminhoes-option option{
-    color: #0057d9;
+    color: navy;
 }
 
 /* INDICADORES */
 section.indicadores h1{
-    color: #0057d9;
+    color: navy;
     font-size: 35px;
     padding: 30px;
 }
@@ -62,13 +62,13 @@ section.indicadores .all-cards{
 
 }
 section.indicadores .card{
-    border: solid 1px #0057d9;
-    box-shadow: 4px 4px 4px #0057d9;
+    border: solid 1px navy;
+    box-shadow: 4px 4px 4px navy;
     border-radius: 10px;
     padding: 20px;
     margin-right: 30px;
     text-align: center;
-    color: #0057d9;
+    color: navy;
 }
 section.indicadores .card h2{
     font-size: 40px;
@@ -84,7 +84,7 @@ section.veiculos-all .veiculos{
     padding: 50px 0px;
 }
 section.veiculos-all .veiculos h1{
-    border: solid 1px #0057d9;
+    border: solid 1px navy;
     font-size: 50px;
     width: 100px;
     text-align: center;
@@ -102,8 +102,8 @@ section.veiculos-all .veiculos .alerta{
     background-color: rgba(255, 0, 0, 0.678);
 }
 section.veiculos-all .legenda-veiculos{
-    border: solid 1px #0057d9;
-    box-shadow: 4px 4px 4px #0057d9;
+    border: solid 1px navy;
+    box-shadow: 4px 4px 4px navy;
     position: relative;
     width: 450px;
     height: 150px;
@@ -152,7 +152,7 @@ section.legenda .negativo h1{
 /* DASHBOARD */
 section.indicadores .text{
     display: flex;
-    color: #0057d9;
+    color: navy;
     font-size: 20px;
 }
 section.indicadores .all-indicadores{
@@ -169,7 +169,7 @@ section.indicadores p{
     color: rgba(0, 0, 0, 0.651);
 }
 section.indicadores .card-indicador{
-    border: solid 1px #0057d9;
+    border: solid 1px navy;
     box-shadow: 4px 4px 4px rgba(0, 0, 128, 0.514);
     border-radius: 10px;
     width: 260px;
@@ -194,7 +194,7 @@ section.bar .grafico-bar{
 }
 
 section.line h3.tituloLinha {
-    color: #0057d9;
+    color: navy;
     margin-top: 0px;
     text-align: center;
     font-size:larger;
@@ -216,7 +216,7 @@ section.pizza {
 }
 
 section.indicadores .container h3.tituloPizza {
-    color: #0057d9;
+    color: navy;
 }
 
 section.pizza .grafico-pizza{
@@ -229,7 +229,7 @@ section.pizza .grafico-pizza{
 /* ESTÉTICA MELHOR */
 .linha-separacao{
     width: 40%;
-    background-color: #0057d9;
+    background-color: navy;
     height: 1px;
     margin-left: 750px;
     margin-bottom: 6px;
@@ -240,7 +240,7 @@ section.informacoes .container{
     padding: 0 0 0 10%;
 }
 section.informacoes .all-informacoes-card h2{
-    color: #0057d9;
+    color: navy;
     font-size: 30px;
     margin-bottom: 10px;
 }
@@ -251,12 +251,12 @@ section.informacoes .all-informacoes-card span{
     font-weight: bold;
 }
 section.informacoes h1{
-    color: #0057d9;
+    color: navy;
     font-size: 35px;
     padding: 30px;
 }
 section.informacoes .info-card{
-    border: solid 1px #0057d9;
+    border: solid 1px navy;
     box-shadow: 4px 4px 4px rgba(0, 0, 128, 0.521);
     padding: 20px;
     width: 500px;
@@ -280,12 +280,13 @@ section .info-card .blocoAzul{
     display: flex;
     height: 17px;
     width: 17px;
-    background-color: #0057d9;
+    background-color: navy;
 }
 
 section .info-card .alertas{
     display: flex;
     margin-left: 5px;
+    color: #fafa34ef;
 }
 .Azul{
     display: flex;

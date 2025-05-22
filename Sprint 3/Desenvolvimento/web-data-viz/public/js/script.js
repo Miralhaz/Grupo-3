@@ -10,10 +10,12 @@ function puxar() {
         })
         .then(function (data) {
             tudo = data;
-            console.log(tudo);
+            console.log('Resultado da função puxar: ', tudo);
 
             tratarDados();
             alertasDias();
+            tratarAlertas();
+            tratarTemperatura();
         })
         .catch(function (err) {
             console.log(err);
@@ -27,7 +29,7 @@ function tratarDados() {
         horas.push(tudo[i].hora_dado);
         diasSemana.push(tudo[i].dia_semana);
     }
-    console.log(temperaturas, diasSemana, horas)
+    console.log('Resultados dos dados tratados: ', temperaturas, diasSemana, horas)
 }
 
 function alertasDias() {
@@ -70,20 +72,18 @@ function alertasDias() {
     });
 }
 
-/*//SEGUIR COMO BASE
-
-let alertaAtencao = [];
-let alertaRisco = [];
-let alertaCritico = [];
+let alertaAtencao = 0;
+let alertaRisco = 0;
+let alertaCritico = 0;
 
 function tratarAlertas() {
-    for (var i = 0; i < tudo.length; i++) {
-        if (tudo[i].temperatura >= 0 && tudo[i].temperatura <= 2) {
-            alertaAtencao.push(tudo[i].temperatura);
-        } else if (tudo[i].temperatura > 2 && tudo[i].temperatura <= 4) {
-            alertaRisco.push(tudo[i].temperatura);
-        } else if (tudo[i].temperatura > 4) {
-            alertaCritico.push(tudo[i].temperatura);
+    for (var i = 0; i < temperaturas.length; i++) {
+        if (temperaturas[i] >= 0 && temperaturas[i] <= 2) {
+            alertaAtencao++;
+        } else if (temperaturas[i] > 2 && temperaturas[i] < 4) {
+            alertaRisco++;
+        } else if (temperaturas[i] >= 4) {
+            alertaCritico++;
         }
     }
     gerarGraficoPizza();
@@ -91,10 +91,8 @@ function tratarAlertas() {
 
 //Gráfico de Pizza
 function gerarGraficoPizza() {
-    var atencao = alertaAtencao.length;
-    var risco = alertaRisco.length;
-    var critico = alertaCritico.length;
 
+    console.log('Gráfico Pizza: Alerta de Risco: ', alertaRisco, ' Alerta de Atenção: ', alertaAtencao, ' Alerta de Crítico: ', alertaCritico)
     const cty = document.getElementById('grafico-pizza');
     new Chart(cty, {
         type: 'pie',
@@ -102,12 +100,12 @@ function gerarGraficoPizza() {
             labels: ['Risco', 'Atenção', 'Crítico'],
             datasets: [{
                 label: 'Total de Alertas',
-                data: [atencao, risco, critico],
+                data: [alertaAtencao, alertaRisco, alertaCritico],
                 borderWidth: 1,
                 backgroundColor: [
-                    '#0057d9',
-                    '#fea42e',
-                    '#FF0000'
+                    '#fafa34ef',
+                    'orange',
+                    'red'
                 ],
                 borderColor: 'white',
                 hoverOffset: 10
@@ -123,49 +121,23 @@ function gerarGraficoPizza() {
     });
 }
 
-let horasVetor = [];
-
-function horas() {
-    fetch("http://localhost:3333/dados/horas")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            horasVetor = data;
-            console.log(horasVetor);
-            tratarTemperatura();
-        })
-        .catch(function (err) {
-            console.log(err);
-        })
-}
-
-/* function tratarTemperatura() {
-    let temperaturasCorreto = [];
-    for (var i = 0; i < temperaturas.length; i++) {
-        temperaturasCorreto.push(temperaturas[i].temperatura);
+var temperaturaReal = [];
+function tratarTemperatura() {
+    for (var i = 0; i < tudo.length; i++) {
+        var horaTemperatura = tudo[i].hora_dado;
+        temperaturaReal.push(tudo[i].temperatura);
     }
-    //Peguei do Chat para Teste | Alterar para um método simplificado
-    for (let i = 0; i < horasVetor.length; i++) {
-        const data = new Date(horasVetor[i].data_hora);
-        //const dia = String(data.getDate()).padStart(2, '0');
-        //const mes = String(data.getMonth() + 1).padStart(2, '0');
-        const hora = String(data.getHours()).padStart(2, '0');
-        const minuto = String(data.getMinutes()).padStart(2, '0');
-        //const formatada = `${dia}/${mes} - ${hora}:${minuto}`;
-        const formatada = `${hora}:${minuto}`;
-        horasFormatada.push(formatada);
-    }
-    console.log(horasFormatada)
+    console.log('Resultado da temperatura tratada: Horas: ', horaTemperatura, ' Temperatura: ', temperaturaReal)
+
     //Gráfico Linhas
     const ctz = document.getElementById('chart-line');
     new Chart(ctz, {
         type: 'line',
         data: {
-            labels: horasFormatada,
+            labels: horaTemperatura,
             datasets: [{
                 label: 'Temperatura em Tempo Real',
-                data: temperaturasCorreto,
+                data: temperaturaReal,
                 borderWidth: 1,
                 borderColor: '#0057d9',
                 backgroundColor: '#0057d9'
@@ -181,30 +153,3 @@ function horas() {
         }
     });
 }
-
-let dias = [];
-function semanas() {
-    fetch("http://localhost:3333/dados/semanas")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            dias = data;
-            console.log(dias);
-            tratarSemana();
-        })
-        .catch(function (err) {
-            console.log(err);
-        })
-}
-let diaSemanas = [];
-let diaTemperaturas = [];
-function tratarSemana() {
-    for (var i = 0; i < dias.length; i++) {
-        diaSemanas.push(dias[i].dia_semana);
-        diaTemperaturas.push(dias[i].temperatura);
-        console.log(diaSemanas, diaTemperaturas);
-    }
-}
-
-*/
