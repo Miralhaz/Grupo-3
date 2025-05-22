@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BobIA</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/script.js" defer></script>
 </head>
-<body>
 
-    <div id="container">
-        <h1>BobIA</h1>
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br><br>
-        <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
+<body id="n3">
+
+    <header id="header">
+        <div class="container">
+            <section class="logo" onclick="scrollToHome()">
+                <h1 id="tituloOculto">Sentinela</h1>
+            
+            </section>
+            <section class="menu-desk">
+                <nav>
+                    <ul>
+                        <li><a href=../index.html>Home</a></li>
+                        <li><a href="simulador.html">Simulador</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section class="btn-contato">
+                <a href="../login.html">
+                    <button>Voltar</button>
+                </a>
+            </section>
+        </div>
+
+    </header>
+    <div id="bobia">
+        <div class="container">
+            <div class="tituloBob"> <img src="https://moodle.sptech.school/pluginfile.php/14492/mod_book/chapter/399/bob_logo.png" height="80px" alt=""><h1> BobIA</h1> </div>
+           
+            <h4>O Assistente de suporte com <br> IA para suporte de Nível 3!</h4>
+            <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+            <br><br>
+            <button id="botaoResposta" onclick="gerarResposta()">Gerar Resposta</button>
+            <h3>Resposta da IA:</h3>
+            <div id="resposta"></div>
+        </div>
     </div>
 
-    <script>
-        
+    
+
+</body>
+<script>
+
         async function gerarResposta() {
             const pergunta = document.getElementById('pergunta').value;
 
@@ -37,6 +74,4 @@
         }
 
     </script>
-    
-</body>
 </html>

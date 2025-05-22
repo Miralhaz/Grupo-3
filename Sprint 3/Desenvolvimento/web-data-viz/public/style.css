@@ -603,3 +603,85 @@ section.tela-login{
     box-shadow: 0px 8px 8px rgba(0, 0, 128, 0.582);
     overflow: hidden;
 }
+
+#bobia{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+   background-color: rgba(0, 0, 128, 0.897);
+  
+}
+
+#pergunta{
+    height: 150px;
+    width: 400px;
+     border: none;
+     border-radius: 10px;
+     padding: 5px;
+         margin-top: 10px;
+
+}
+
+#pergunta:focus{
+    outline: none;
+    box-shadow: 3px 4px  rgb(58, 140, 248);
+}
+
+
+
+
+#botaoResposta{
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+    padding: 7px;
+    transition: ease-in-out 0.5s;
+    
+}
+
+
+#botaoResposta:hover{
+    background-color: white;
+    color: navy;
+    transform: scale(1.02);
+    border-color: navy;
+    cursor: pointer;
+}
+
+#bobia .container{
+    transform: scale(1.2);
+}
+
+
+
+#resposta{
+    width: 100%;
+    height: 100px;
+    color: white;
+   
+}
+
+.tituloBob{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tituloBob h1{
+    color: white;
+    font-size: 70px;
+}
+
+#bobia h4,h3{
+    color: rgb(184, 184, 181);
+    font-size: 20px;
+    font-weight:800;
+    padding: 10px;
+}
