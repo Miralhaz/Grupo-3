@@ -50,7 +50,16 @@ CREATE TABLE dado_arduino (
     temperatura DECIMAL(4,2),
     fk_sensor INT,
     data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (fk_sensor) REFERENCES sensor(idSensor)
+    fk_protocolo INT,
+    FOREIGN KEY (fk_sensor) REFERENCES sensor(idSensor),
+    FOREIGN KEY (fk_protocolo) REFERENCES protocolo(id_protocolo)
+);
+
+CREATE TABLE protocolo (
+  id_protocolo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  inicio_atuacao DATE NULL,
+  temperatura_minima DECIMAL(4,2) NULL,
+  temperatura_maxima DECIMAL(4,2) NULL
 );
 
 INSERT INTO empresa_cliente (token, nome_empresa, CNPJ, CEO) VALUES
@@ -113,8 +122,6 @@ INSERT INTO veiculo (placa, ano, modelo, fk_empresa) VALUES
 ('JKL6S88', 2019, 'Ford Cargo 2442', 10),
 ('MNO7T99', 2022, 'Mercedes-Benz Actros 2545', 10),
 ('PQR8U00', 2018, 'Volvo FH 420', 10),
-
--- Próximos 50 veículos (com fk_motorista NULL - serão vinculados via sensor)
 ('STU9V11', 2021, 'Scania R450', 10),
 ('VWX0W22', 2020, 'Volvo FH 500', 10),
 ('YZA1X33', 2019, 'Mercedes-Benz Axor 3341', 10),
@@ -243,20 +250,10 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 ('manutencao', '2023-09-03', 69),
 ('ativo', '2023-09-08', 70);
 
-/*
--- Inserindo 10 leituras de temperatura para um sensor no sensor ID 1
-INSERT INTO dado_arduino (temperatura, fk_sensor, data_hora) VALUES
-(1.2, 1,default ),
-(3.5, 1, default),
-(0.8, 1, default),
-(4.2, 1,default),
-(2.1, 1, default),
-(5.0, 1,default),
-(1.9, 1,default),
-(0.5, 1, default),
-(3.8, 1,default),
-(4.9, 1,default);
+INSERT INTO protocolo (inicio_atuacao, temperatura_minima, temperatura_maxima) VALUES
+('2025-05-23', 0, 5);
 
+/*
 -- Inserindo alertas automaticamente para temperaturas críticas
 INSERT INTO alertas (descricao_alerta, fk_dado)
 SELECT 

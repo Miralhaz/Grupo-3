@@ -22,7 +22,6 @@ function puxar() {
         })
 }
 
-
 function tratarDados() {
     for (var i = 0; i < tudo.length; i++) {
         temperaturas.push(tudo[i].temperatura);
