@@ -179,6 +179,7 @@ section .card .texto-recursos h1{
 section .card .texto-recursos p{
     font-size: 15px;
     text-align: center;
+    color: navy;
 }
 section .card .img-recursos span{
     font-size: 70px;

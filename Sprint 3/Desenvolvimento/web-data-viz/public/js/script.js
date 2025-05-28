@@ -3,7 +3,7 @@ let temperaturas = [];
 let diasSemana = [];
 let horas = [];
 
-function puxar() {
+async function puxar() {
     fetch("http://localhost:3333/dados/puxar")
         .then(function (response) {
             return response.json();
@@ -36,15 +36,29 @@ function alertasDias() {
     let terca = 0;
     let quarta = 0;
     let quinta = 0;
-    let sexta = 0;
+    let sexta = 2;
     let sabado = 0;
     let domingo = 0;
 
     for (let i = 0; i < tudo.length; i++) {
-        if (tudo[i].dia_semana == 'Tuesday' && tudo[i].temperatura >= 0) {
+        if (tudo[i].dia_semana == 'Wednesday' && tudo[i].temperatura >= 0) {
             terca++
         }
     }
+
+    if(terca > sexta){
+        dia_alertas.innerHTML = `Terça-Feira`
+    } else {
+        dia_alertas.innerHTML = `Sexta-Feira`
+    }
+
+    if(sexta > terca){
+        alertas_dia.innerHTML = `Alertas no dia: ${sexta}`
+    } else {
+        alertas_dia.innerHTML = `Alertas no dia: ${terca}`
+    }
+    
+    total_alertas.innerHTML = `${terca + sexta} Alertas`
 
     //Gráfico de Barras
     const ctx = document.getElementById('myChart');
@@ -121,28 +135,29 @@ function gerarGraficoPizza() {
 }
 
 var temperaturaReal = [];
+var horaTemperatura = [];
 function tratarTemperatura() {
     for (var i = 0; i < tudo.length; i++) {
-        var horaTemperatura = tudo[i].hora_dado;
+        horaTemperatura.push(tudo[i].hora_dado);
         temperaturaReal.push(tudo[i].temperatura);
     }
     console.log('Resultado da temperatura tratada: Horas: ', horaTemperatura, ' Temperatura: ', temperaturaReal)
 
     //Gráfico Linhas
-    const ctz = document.getElementById('chart-line');
-    new Chart(ctz, {
-        type: 'line',
-        data: {
-            labels: horaTemperatura,
-            datasets: [{
-                label: 'Temperatura em Tempo Real',
-                data: temperaturaReal,
-                borderWidth: 1,
-                borderColor: '#0057d9',
-                backgroundColor: '#0057d9'
-            }]
-        },
-        options: {
+        const ctz = document.getElementById('chart-line');
+        new Chart(ctz, {
+            type: 'line',
+            data: {
+                labels: horaTemperatura,
+                datasets: [{
+                    label: 'Temperatura em Tempo Real',
+                    data: temperaturaReal,
+                    borderWidth: 1,
+                    borderColor: '#0057d9',
+                    backgroundColor: '#0057d9'
+                }]
+            },
+            options: {
             indexAxis: 'x',
             scales: {
                 y: {

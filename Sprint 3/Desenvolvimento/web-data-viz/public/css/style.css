@@ -9,6 +9,7 @@ html {
 }
 body{
     background-color:   white;
+    overflow: hidden;
 }
 .container{
     max-width: 1280px;
@@ -84,7 +85,7 @@ section.veiculos-all .veiculos{
     padding: 50px 0px;
 }
 section.veiculos-all .veiculos h1{
-    border: solid 1px navy;
+    border: solid 2.5px navy;
     font-size: 50px;
     width: 100px;
     text-align: center;

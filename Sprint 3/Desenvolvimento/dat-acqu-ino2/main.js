@@ -16,9 +16,9 @@ const serial = async (valoresSensorAnalogico) => {
     let poolBancoDados = mysql.createPool({
         host: '127.0.0.1',
         user: 'aluno',
-        password: 'Sptech#2024',
+        password: 'sptech',
         database: 'sentinela',
-        port: 3307
+        port: 3306
     }).promise();
 
     // lista as portas seriais disponíveis e procura pelo Arduino
