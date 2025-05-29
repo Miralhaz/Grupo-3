@@ -107,9 +107,44 @@
 <script>
     //vou deixar o script aqui pq fica melhor pra arrumar
     function enviarId(sensorId) {
-        console.log('Sensor Selecionado:',sensorId);
+        console.log('Sensor Selecionado:', sensorId);
         sessionStorage.setItem("SENSOR_SELECIONADO", sensorId);
         window.location.href = "dashboard.html";
+    }
+
+    //Função que será executada ao iniciar esta tela
+    window.onload = () => {
+        fetch('http://localhost:3333/dados/verificarAlertas')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(avisos => {
+                //Essa sintaxe vai coletar todos os h1 que estejam dentro da div de class .veiculos
+                const pegarTodosOsH1 = document.querySelectorAll('.veiculos h1');
+
+                //for para percorrer todos os h1
+                for(let i = 0; i < pegarTodosOsH1.length; i++){
+                    //Define o h1 atual a ser verificado
+                    let h1Atual = pegarTodosOsH1[i];
+
+                    //define o sensorId para comparar lá no model
+                    let sensorId = parseInt(h1Atual.textContent);
+
+                    //for para percorrer os alertas dentro de cada sensorId
+                    for(let a = 0; a < avisos.length; a++){
+                        //Comparação para ver se existe alertas dentro de um id específico
+                        if (avisos[a].fk_sensor == sensorId){
+                            h1Atual.style.backgroundColor = '#FF0000AD';
+
+                            //Já que encontrou um alerta vinculado, quebra e vai para o próximo
+                            break;
+                        }
+                    }
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
     }
 </script>
 

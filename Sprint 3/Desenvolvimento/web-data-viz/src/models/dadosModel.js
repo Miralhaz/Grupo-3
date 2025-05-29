@@ -15,8 +15,14 @@ function puxarPlaca(sensorId) {
     return database.executar(instrucaoSql);
 } 
 
+function verificarAlertas(){
+    var instrucaoSql = `select fk_sensor from dado_arduino where temperatura >= 0; `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     puxar,
     puxarMedia,
-    puxarPlaca
+    puxarPlaca,
+    verificarAlertas
 };

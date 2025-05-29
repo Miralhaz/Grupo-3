@@ -14,4 +14,8 @@ router.get("/puxarPlaca/:sensorId", function(req, res) {
     dadosController.puxarPlaca(req, res);
 }); 
 
+router.get("/verificarAlertas", function(req, res) {
+    dadosController.verificarAlertas(req, res);
+}); 
+
 module.exports = router;
