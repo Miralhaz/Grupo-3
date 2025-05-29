@@ -2,6 +2,8 @@ let tudo = [];
 let temperaturas = [];
 let diasSemana = [];
 let horas = [];
+let placa = [];
+let media = 0;
 
 async function puxar() {
     fetch("http://localhost:3333/dados/puxar")
@@ -16,6 +18,44 @@ async function puxar() {
             alertasDias();
             tratarAlertas();
             tratarTemperatura();
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+}
+
+var valorMedia = [];
+ function puxarMedia() {
+    fetch("http://localhost:3333/dados/puxarMedia")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            media = data
+            console.log('Resultado da função puxar média: ', valorMedia);
+
+            valorMedia.push(media[0].media_temperatura)
+            
+            media_temperatura.innerHTML = `${valorMedia}°C`
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+};
+
+var valorPlaca = [];
+function puxarPlaca() {
+    fetch("http://localhost:3333/dados/puxarPlaca")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            placa = data
+            console.log("Resultado da função puxar placa: ", placa)
+
+            valorPlaca.push(placa[0].placa)
+
+            placa_caminhao.innerHTML = `${valorPlaca}`
         })
         .catch(function (err) {
             console.log(err);
@@ -57,7 +97,7 @@ function alertasDias() {
     } else {
         alertas_dia.innerHTML = `Alertas no dia: ${terca}`
     }
-    
+
     total_alertas.innerHTML = `${terca + sexta} Alertas`
 
     //Gráfico de Barras

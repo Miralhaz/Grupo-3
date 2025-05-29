@@ -229,6 +229,19 @@ FROM
     veiculo v
 INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa
 WHERE v.fk_motorista IS NULL;
+
+INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo)
+VALUES
+    (-0.75, 1, 1),
+    (0.20, 1, 1),
+    (1.35, 1, 1),
+    (2.50, 1, 1),
+    (3.10, 1, 1),
+    (4.25, 1, 1),
+    (5.00, 1, 1),
+    (3.75, 1, 1),
+    (2.00, 1, 1),
+    (-0.30, 1, 1);
 */
 
 

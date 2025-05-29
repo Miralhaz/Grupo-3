@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="puxar()">
+<body onload="puxar(), puxarMedia(), puxarPlaca()">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -50,7 +50,7 @@
                             <p>Média de Temperatura</p>
                             <div class="text">
                                 <span class="material-symbols-outlined">warning</span>
-                                <h2>1,54Cº</h2>
+                                <h2 id="media_temperatura"></h2>
                             </div>
                             <h3>Últimas 24h</h3>
                         </div>
@@ -65,12 +65,11 @@
                             <h3>Valor Semanal</h3>
                         </div>
                         <div class="card-indicador" id="third">
-                            <p>Tempo Acima da Temperatura</p>
+                            <p>Placa do caminhão:</p>
                             <div class="text">
                                 <span class="material-symbols-outlined">warning</span>
-                                <h2>2 min e 35s</h2>
+                                <h2 id="placa_caminhao"></h2>
                             </div>
-                            <h3>Acarretou 3 Alertas</h3>
                         </div>
                     </div>
                 </div>

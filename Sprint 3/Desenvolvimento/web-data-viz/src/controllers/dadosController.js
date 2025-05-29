@@ -16,8 +16,46 @@ function puxar(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
+};
+
+function puxarMedia(req, res) {
+    dadosModel.puxarMedia()
+        .then(function (dados) {
+            if (dados.length > 0) {
+                res.status(200).json(dados);
+            } else {
+                res.status(204).send('Informações Não Encontradas!!')
+            }
+        })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao Coletar Informações! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+};
+
+function puxarPlaca(req, res) {
+    dadosModel.puxarPlaca()
+    .then(function (dados) {
+        if (dados.length > 0) {
+            res.status(200).json(dados);
+        } else {
+            res.status(204).send('Informações Não Encontradas!!')
+        }
+    })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao Coletar Informações! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 module.exports = {
-    puxar
+    puxar,
+    puxarMedia,
+    puxarPlaca
 };
