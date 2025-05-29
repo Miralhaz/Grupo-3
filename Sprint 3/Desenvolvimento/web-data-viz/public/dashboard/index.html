@@ -32,15 +32,15 @@
             <div class="all-cards">
                 <div class="card">
                     <h3>Status Ativos</h3>
-                    <h2>36</h2>
+                    <h2 id="total_sensores">36</h2>
                 </div>
                 <div class="card">
                     <h3>Status Seguro</h3>
-                    <h2>26</h2>
+                    <h2 id="status_seguro">26</h2>
                 </div>
                 <div class="card">
                     <h3>Status Alerta</h3>
-                    <h2>10</h2>
+                    <h2 id="status_alerta">10</h2>
                 </div>
             </div>
         </div>
@@ -121,26 +121,33 @@
             .then(avisos => {
                 //Essa sintaxe vai coletar todos os h1 que estejam dentro da div de class .veiculos
                 const pegarTodosOsH1 = document.querySelectorAll('.veiculos h1');
-
+                let totalAlertas = 0;
+                let contador = 0;
                 //for para percorrer todos os h1
-                for(let i = 0; i < pegarTodosOsH1.length; i++){
+                for (let i = 0; i < pegarTodosOsH1.length; i++) {
                     //Define o h1 atual a ser verificado
                     let h1Atual = pegarTodosOsH1[i];
+
 
                     //define o sensorId para comparar lá no model
                     let sensorId = parseInt(h1Atual.textContent);
 
                     //for para percorrer os alertas dentro de cada sensorId
-                    for(let a = 0; a < avisos.length; a++){
+                    for (let a = 0; a < avisos.length; a++) {
                         //Comparação para ver se existe alertas dentro de um id específico
-                        if (avisos[a].fk_sensor == sensorId){
+                        if (avisos[a].fk_sensor == sensorId) {
+                            totalAlertas++;
                             h1Atual.style.backgroundColor = '#FF0000AD';
-
                             //Já que encontrou um alerta vinculado, quebra e vai para o próximo
                             break;
                         }
                     }
+                    status_alerta.innerHTML = totalAlertas;
+                    contador++;
                 }
+                let totalSeguro = contador - totalAlertas;
+                status_seguro.innerHTML = totalSeguro;
+                total_sensores.innerHTML = contador;
             })
             .catch(function (err) {
                 console.log(err);
