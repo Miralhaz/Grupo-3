@@ -20,7 +20,8 @@ function puxar(req, res) {
 };
 
 function puxarMedia(req, res) {
-    dadosModel.puxarMedia()
+    const sensorId = req.params.sensorId;
+    dadosModel.puxarMedia(sensorId)
         .then(function (dados) {
             if (dados.length > 0) {
                 res.status(200).json(dados);
@@ -38,7 +39,8 @@ function puxarMedia(req, res) {
 };
 
 function puxarPlaca(req, res) {
-    dadosModel.puxarPlaca()
+    const sensorId = req.params.sensorId;
+    dadosModel.puxarPlaca(sensorId)
     .then(function (dados) {
         if (dados.length > 0) {
             res.status(200).json(dados);

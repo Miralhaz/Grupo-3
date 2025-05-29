@@ -7,8 +7,8 @@ let media = 0;
 
 async function puxar() {
     const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
-    console.log('Sensor Selecionado:',sensorId);
-    
+    console.log('Sensor Selecionado:', sensorId);
+
     fetch(`http://localhost:3333/dados/puxar/${sensorId}`)
         .then(function (response) {
             return response.json();
@@ -28,8 +28,11 @@ async function puxar() {
 }
 
 var valorMedia = [];
- function puxarMedia() {
-    fetch("http://localhost:3333/dados/puxarMedia")
+function puxarMedia() {
+    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    console.log('Sensor Média:', sensorId);
+
+    fetch(`http://localhost:3333/dados/puxarMedia/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
@@ -38,7 +41,7 @@ var valorMedia = [];
             console.log('Resultado da função puxar média: ', valorMedia);
 
             valorMedia.push(media[0].media_temperatura)
-            
+
             media_temperatura.innerHTML = `${valorMedia}°C`
         })
         .catch(function (err) {
@@ -48,7 +51,9 @@ var valorMedia = [];
 
 var valorPlaca = [];
 function puxarPlaca() {
-    fetch("http://localhost:3333/dados/puxarPlaca")
+    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    console.log('Sensor Placa:', sensorId);
+    fetch(`http://localhost:3333/dados/puxarPlaca/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
@@ -89,13 +94,13 @@ function alertasDias() {
         }
     }
 
-    if(terca > sexta){
+    if (terca > sexta) {
         dia_alertas.innerHTML = `Terça-Feira`
     } else {
         dia_alertas.innerHTML = `Sexta-Feira`
     }
 
-    if(sexta > terca){
+    if (sexta > terca) {
         alertas_dia.innerHTML = `Alertas no dia: ${sexta}`
     } else {
         alertas_dia.innerHTML = `Alertas no dia: ${terca}`
@@ -187,20 +192,20 @@ function tratarTemperatura() {
     console.log('Resultado da temperatura tratada: Horas: ', horaTemperatura, ' Temperatura: ', temperaturaReal)
 
     //Gráfico Linhas
-        const ctz = document.getElementById('chart-line');
-        new Chart(ctz, {
-            type: 'line',
-            data: {
-                labels: horaTemperatura,
-                datasets: [{
-                    label: 'Temperatura em Tempo Real',
-                    data: temperaturaReal,
-                    borderWidth: 1,
-                    borderColor: '#0057d9',
-                    backgroundColor: '#0057d9'
-                }]
-            },
-            options: {
+    const ctz = document.getElementById('chart-line');
+    new Chart(ctz, {
+        type: 'line',
+        data: {
+            labels: horaTemperatura,
+            datasets: [{
+                label: 'Temperatura em Tempo Real',
+                data: temperaturaReal,
+                borderWidth: 1,
+                borderColor: '#0057d9',
+                backgroundColor: '#0057d9'
+            }]
+        },
+        options: {
             indexAxis: 'x',
             scales: {
                 y: {

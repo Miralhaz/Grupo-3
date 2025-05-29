@@ -6,11 +6,11 @@ router.get("/puxar/:sensorId", function (req, res) {
     dadosController.puxar(req, res);
 });
 
-router.get("/puxarMedia", function(req, res) {
+router.get("/puxarMedia/:sensorId", function(req, res) {
     dadosController.puxarMedia(req, res);
 });
 
-router.get("/puxarPlaca", function(req, res) {
+router.get("/puxarPlaca/:sensorId", function(req, res) {
     dadosController.puxarPlaca(req, res);
 }); 
 

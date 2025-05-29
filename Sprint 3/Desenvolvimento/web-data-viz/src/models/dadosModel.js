@@ -5,13 +5,13 @@ function puxar(sensorId) {
     return database.executar(instrucaoSql);
 };
 
-function puxarMedia() {
-    var instrucaoSql = `select truncate(avg(temperatura), 2) as media_temperatura from dado_arduino where fk_sensor = 1;`
+function puxarMedia(sensorId) {
+    var instrucaoSql = `select truncate(avg(temperatura), 2) as media_temperatura from dado_arduino where fk_sensor = ${sensorId};`
     return database.executar(instrucaoSql);
 }
 
-function puxarPlaca() {
-    var instrucaoSql = `select placa from veiculo v join sensor s on v.idVeiculo = s.fk_veiculo where fk_veiculo = 1;`
+function puxarPlaca(sensorId) {
+    var instrucaoSql = `select placa from veiculo v join sensor s on v.idVeiculo = s.fk_veiculo where fk_veiculo = ${sensorId};`
     return database.executar(instrucaoSql);
 } 
 
