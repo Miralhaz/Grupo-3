@@ -1,7 +1,8 @@
 var dadosModel = require("../models/dadosModel");
 
 function puxar(req, res) {
-    dadosModel.puxar()
+    const sensorId = req.params.sensorId;
+    dadosModel.puxar(sensorId)
         .then(function (dados) {
             if (dados.length > 0) {
                 res.status(200).json(dados);

@@ -6,7 +6,10 @@ let placa = [];
 let media = 0;
 
 async function puxar() {
-    fetch("http://localhost:3333/dados/puxar")
+    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    console.log('Sensor Selecionado:',sensorId);
+    
+    fetch(`http://localhost:3333/dados/puxar/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
