@@ -230,31 +230,66 @@ section.beneficios h1{
 section.contato{
     padding: 60px;
 }
+
 section.contato h1{
     font-size: 30px;
     text-align: center;
 }
-section.contato .campos label{
-    font-size: 20px;
+
+section.contato .container {
+    display: flex;
+    flex-direction: column;
 }
-section.contato .campos input{
-    font-size: 20px;
+
+form .campos {
+    display: grid;
+}
+
+form .campos label {
+    display: flex;
+}
+
+form .campos input {
+    font-size: 18px;
     width: 600px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 128, 0.514);
+    padding: 2px 5px;
 }
-section.contato .campos-all{
+
+form .campos button {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid navy;
+    background-color: transparent;
+    color: navy;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+form .campos button:hover {
+    background-color: navy;
+    color: white;
+    transform: scale(1.05);
+}
+
+form .campos-all{
     margin-left: 180px;
 }
+
 #ipt_mensagem{
     height: 200px;
-    font-size: 20px;
+    font-size: 18px;
     width: 600px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 128, 0.514);
+    padding: 2px 5px;
 }
+
 /* FOOTER */
 
 footer{
