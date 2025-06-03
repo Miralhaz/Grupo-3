@@ -43,7 +43,7 @@
                     <button onclick="cadastrar()">Enviar Dados</button>
                     <div id="div_aguardar" class="loading-div">
 
-                  </div>
+                    </div>
                     <a href="login.html">Já tem Login? Logue-se Aqui</a>
                 </div>
                 <div class="texto-login">
@@ -54,26 +54,34 @@
                         <div class="card_erro" id="cardErro">
                             <span id="mensagem_erro"></span>
                         </div>
-                    
 
-                        <label>Token</label>
-                        <input type="text" id="fkToken_input">
+
+                        <div class="itens-first">
+                            <div class="one">
+                                <label>Token</label>
+                                <input type="text" id="fkToken_input">
+                            </div>
+
+                            <div class="two">
+                                <label>CPF</label>
+                                <input type="text" id="cpf_input">
+                            </div>
+                        </div>
 
                         <label>Nome</label>
                         <input type="text" id="nome_input">
-                    
+
                         <label>Email</label>
                         <input type="text" id="email_input">
-                        
-                        <label>CPF</label>
-                        <input type="text" id="cpf_input">
+
+
 
                         <label>Senha</label>
                         <input type="password" id="senha_input">
-                        
+
                         <label>Confirmar Senha</label>
                         <input type="password" id="confirmacao_senha_input">
-                        
+
 
                         <div id="div_erros_login"></div>
 
@@ -99,7 +107,7 @@
         var cpfVar = cpf_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var fkTokenVar = fkToken_input.value
-        var idEmpresaVincular 
+        var idEmpresaVincular
 
 
 
@@ -166,17 +174,17 @@
         }
 
         // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == fkTokenVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Código de ativação inválido!";
-        finalizarAguardar();
-      }
-    }
+        for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+            if (listaEmpresasCadastradas[i].codigo_ativacao == fkTokenVar) {
+                idEmpresaVincular = listaEmpresasCadastradas[i].id
+                console.log("Código de ativação válido.");
+                break;
+            } else {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Código de ativação inválido!";
+                finalizarAguardar();
+            }
+        }
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -214,7 +222,7 @@
                     finalizarAguardar();
                 } else {
                     mensagem_erro.innerHTML = "Erro ao cadastrar! Verifique se o código de ativação (token) é válido!";
-                        
+
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
@@ -225,26 +233,26 @@
 
         return false;
     }
-    
-    // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
 
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log('#ERRO: ${resposta}');
-      });
-  }
+    // Listando empresas cadastradas 
+    function listar() {
+        fetch("/empresas/listar", {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((empresas) => {
+                    empresas.forEach((empresa) => {
+                        listaEmpresasCadastradas.push(empresa);
+
+                        console.log("listaEmpresasCadastradas")
+                        console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+                    });
+                });
+            })
+            .catch(function (resposta) {
+                console.log('#ERRO: ${resposta}');
+            });
+    }
 
     function sumirMensagem() {
         cardErro.style.display = "none"

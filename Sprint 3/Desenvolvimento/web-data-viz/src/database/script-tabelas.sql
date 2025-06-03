@@ -153,6 +153,19 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 INSERT INTO protocolo (inicio_atuacao, temperatura_minima, temperatura_maxima) VALUES
 ('2025-05-23', 0, 5);
 
+create table alertas (
+idAlerta int primary key auto_increment,
+fk_sensor int,
+fk_dado int,
+status_alerta varchar(20),
+foreign key fk_sensor(fk_sensor) references sensor(idSensor),
+foreign key fk_dado(fk_dado) references dado_arduino(idDado_Arduino),
+constraint chk_status check (status_alerta in ('verificar','verificado'))
+);
+
+select count(idAlerta) as total_alertas from alertas where fk_sensor = 1;
+update alertas set status_alerta = 'verificado' where fk_sensor = 1;
+
 -- Sensor 1
 INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo) VALUES
 (1.23, 1, 1),
@@ -191,93 +204,3 @@ INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo) VALUES
 (1.67, 23, 1),
 (0.23, 23, 1),
 (4.50, 23, 1);
-
-create table alertas (
-idAlerta int primary key auto_increment,
-fk_sensor int,
-fk_dado int,
-status_alerta varchar(20),
-foreign key fk_sensor(fk_sensor) references sensor(idSensor),
-foreign key fk_dado(fk_dado) references dado_arduino(idDado_Arduino),
-constraint chk_status check (status_alerta in ('verificar','verificado'))
-);
-
-insert into alertas (fk_sensor, fk_dado, status_alerta) values
-(1,1,'verificar'),
-(1,2,'verificar'),
-(2,1,'verificar'),
-(2,2,'verificar'),
-(23,1,'verificar'),
-(23,2,'verificar');
-select * from alertas;
-
-select count(idAlerta) as total_alertas from alertas where fk_sensor = 1;
-update alertas set status_alerta = 'verificado' where fk_sensor = 1;
-/*
--- Inserindo alertas automaticamente para temperaturas críticas
-INSERT INTO alertas (descricao_alerta, fk_dado)
-SELECT 
-    CASE 
-        WHEN temperatura BETWEEN 0 AND 2 THEN 'ATENÇÃO'
-        WHEN temperatura > 2 AND temperatura <= 4 THEN 'RISCO'
-        WHEN temperatura > 4 THEN 'CRÍTICO'
-    END,
-    idDado_Arduino
-FROM 
-    dado_arduino
-WHERE 
-    fk_sensor = 1
-    AND (temperatura BETWEEN 0 AND 4) ;
-
-SELECT * FROM ALERTAS;
-
--- ----------------------------------- VIEWS -----------------
-select * from motoristas;
-select * from veiculo;
-select * from sensor;
-select * from alertas;
-select * from empresa_cliente;
-select * from gestores;
-select * from dado_arduino;
-
-
--- motoristas com caminhões atribuídos
-CREATE VIEW vw_motoristas_empresa as
-SELECT 
-    v.placa, 
-    v.modelo, 
-    m.nome AS motorista, 
-    e.nome_empresa
-FROM 
-    veiculo v
-INNER JOIN motorista m ON v.fk_motorista = m.idMotorista
-INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa;
-
-select * from vw_motoristas_empresa;
-
--- Verificar caminhões que estão sem motorista 
-SELECT 
-    v.placa, 
-    v.modelo, 
-    IFNULL(m.nome, 'SEM MOTORISTA') AS motorista, 
-    e.nome_empresa,
-    IFNULL(v.fk_motorista, 'NÃO ATRIBUÍDO') AS id_motorista
-FROM 
-    veiculo v
-INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa
-LEFT JOIN motorista m ON v.fk_motorista = m.idMotorista;
-
--- veiculos sem motorista
-
-SELECT 
-    v.placa, 
-    v.modelo, 
-    e.nome_empresa
-FROM 
-    veiculo v
-INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa
-WHERE v.fk_motorista IS NULL;
-*/
-
-
-

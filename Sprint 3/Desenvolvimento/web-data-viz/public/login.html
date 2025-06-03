@@ -38,7 +38,6 @@
                     <h1>Login</h1>
                     <p>Acesse sua Conta <span>Desfrute dos Benefícios Através da Dashboard</span></p>
                     <img src="assets/logo_right.jpg">
-                    <button onclick="entrar()">Entrar</button>
                     <a href="cadastro.html">Não tem Login? Cadastre-se Aqui</a>
                 </div>
                 <div class="texto-login">
@@ -49,13 +48,14 @@
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-                    <label>Email</label>
+                    <label id="email-login">Email</label>
                     <input type="text" id="email_input">
                     <i></i>
-                    <label>Senha</label>
+                    <label id="senha-login">Senha</label>
                     <input type="password" id="senha_input">
                     <i></i>
                     <div id="div_aguardar" class="loading-div">
+                        <button onclick="entrar()" id="entrar">Entrar</button>
                 </div>
                     <div id="div_erros_login"></div>
                     

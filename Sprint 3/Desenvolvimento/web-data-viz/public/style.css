@@ -152,6 +152,7 @@ section.recursos-principais h1{
     text-align: center;
     font-size: 35px;
     margin-bottom: 30px;
+    color: navy;
 }
 section .card{
     border: solid 1px rgba(0, 0, 128, 0.616);
@@ -178,6 +179,7 @@ section .card .texto-recursos h1{
 }
 section .card .texto-recursos p{
     font-size: 15px;
+    margin-top: 10px;
     text-align: center;
     color: navy;
 }
@@ -192,6 +194,7 @@ section .beneficios-all{
     display: flex;
 }
 section.beneficios{
+    margin-top: -50px;
     padding: 60px;
     background-image: url('logo_right.jpg');
     background-attachment: fixed;
@@ -202,14 +205,16 @@ section.beneficios h1{
     text-align: center;
     font-size: 35px;
     margin-bottom: 30px;
-    color: white;
+    color: navy;
 }
 #card-beneficios{
     margin-left: 40px;
 }
 /* SECTION DE BENEFÍCIOS EM GRÁFICOS */
 .values-beneficios-all{
-    background-color: navy;
+    background-image: url('assets/logo_right.jpg');
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     width: 100%;
     color: white;
@@ -234,6 +239,12 @@ section.contato{
 section.contato h1{
     font-size: 30px;
     text-align: center;
+    color: navy;
+}
+section.contato label{
+    font-size: 20px;
+    text-align: center;
+    color: navy;
 }
 
 section.contato .container {
@@ -253,14 +264,16 @@ form .campos input {
     font-size: 18px;
     width: 600px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid rgba(0, 0, 128, 0.514);
     padding: 2px 5px;
+    padding: 10px 15px;
+    transition: 0.3s;
 }
 
 form .campos button {
-    width: 300px;
-    height: 50px;
+    width: 600px;
+    height: 60px;
     font-size: 20px;
     margin-top: 10px;
     border: 1px solid navy;
@@ -268,6 +281,7 @@ form .campos button {
     color: navy;
     border-radius: 10px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 form .campos button:hover {
@@ -277,7 +291,7 @@ form .campos button:hover {
 }
 
 form .campos-all{
-    margin-left: 180px;
+    justify-items: center;
 }
 
 #ipt_mensagem{
@@ -329,6 +343,7 @@ footer .middle-footer a, p{
     margin: 0 15px;
     text-decoration: none;
 }
+
 footer .bottom-footer{
     border-top: 2px solid white;
 }
@@ -386,6 +401,7 @@ footer .bottom-footer p{
     color: navy;
     border-radius: 10px;
     transition: 0.3s;
+    cursor: pointer;
 }
 .btn-simulador:hover{
     background-color: navy;
@@ -521,6 +537,7 @@ footer .bottom-footer p{
     border-radius: 10px;
     transition: 0.3s;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 .economizar button:hover{
     background-color: navy;
@@ -553,6 +570,7 @@ section.tela-login{
     border-radius: 15px;
     box-shadow: 0px 8px 8px rgba(0, 0, 128, 0.582);
     overflow: hidden;
+    margin-top: 50px;
 }
 .imagem-login h1{
     position: absolute;
@@ -633,13 +651,17 @@ section.tela-login{
     margin-left: 0px;
     margin-top: 400px;
     color: white;
+    transition: 0.3s;
+}
+.imagem-login a:hover{
+    transform: scale(1.03);
 }
 
 /* CADASTRO */
 
 .corpo-cadastro {
     display: flex;
-    height: 650px;
+    height: 580px;
     width: 100%;
     border: solid 1px rgba(0, 0, 128, 0.473);
     border-radius: 15px;
@@ -727,4 +749,43 @@ section.tela-login{
     font-size: 20px;
     font-weight:800;
     padding: 10px;
+}
+.middle-footer #email{
+    margin-top: 20px;
+}
+#email-login{
+    margin-top: 20px;
+}
+#senha-login{
+    margin-top: 20px;
+}
+
+#entrar{
+    width: 400px;
+    height: 60px;
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid white;
+    background-color: navy;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 40px;
+}
+#entrar:hover{
+    background-color: white;
+    color: navy;
+    border: 1px solid navy;
+    transform: scale(1.05);
+}
+.itens-first{
+    display: flex;
+    width: 400px;
+    gap: 40px;
+}
+.one input{
+    width: 180px;
+}
+.two input{
+    width: 180px;
 }
