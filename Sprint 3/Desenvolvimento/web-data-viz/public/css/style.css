@@ -315,3 +315,6 @@ section .info-card .blocoLaranja{
 #placa_caminhao, #icon-tag{
     margin-top: 15px;
 }
+.baixa{
+    display: none;
+}

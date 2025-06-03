@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body onload="verificarAlertas()">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -36,11 +36,11 @@
                 </div>
                 <div class="card">
                     <h3>Status Seguro</h3>
-                    <h2 id="status_seguro">26</h2>
+                    <h2 id="status_seguro">36</h2>
                 </div>
                 <div class="card">
                     <h3>Status Alerta</h3>
-                    <h2 id="status_alerta">10</h2>
+                    <h2 id="status_alerta">0</h2>
                 </div>
             </div>
         </div>
@@ -48,42 +48,42 @@
     <section class="veiculos-all">
         <div class="container">
             <div class="veiculos" onclick="window.location.href='dashboard.html'">
-                <h1 onclick="enviarId(1)">1</h1>
-                <h1 onclick="enviarId(2)">2</h1>
-                <h1 onclick="enviarId(3)">3</h1>
-                <h1 onclick="enviarId(4)">4</h1>
-                <h1 onclick="enviarId(5)">5</h1>
-                <h1 onclick="enviarId(6)">6</h1>
-                <h1 onclick="enviarId(7)">7</h1>
-                <h1 onclick="enviarId(8)">8</h1>
-                <h1 onclick="enviarId(9)">9</h1>
-                <h1 onclick="enviarId(10)">10</h1>
-                <h1 onclick="enviarId(11)">11</h1>
-                <h1 onclick="enviarId(12)">12</h1>
-                <h1 onclick="enviarId(13)">13</h1>
-                <h1 onclick="enviarId(14)">14</h1>
-                <h1 onclick="enviarId(15)">15</h1>
-                <h1 onclick="enviarId(16)">16</h1>
-                <h1 onclick="enviarId(17)">17</h1>
-                <h1 onclick="enviarId(18)">18</h1>
-                <h1 onclick="enviarId(19)">19</h1>
-                <h1 onclick="enviarId(20)">20</h1>
-                <h1 onclick="enviarId(21)">21</h1>
-                <h1 onclick="enviarId(22)">22</h1>
-                <h1 onclick="enviarId(23)">23</h1>
-                <h1 onclick="enviarId(24)">24</h1>
-                <h1 onclick="enviarId(25)">25</h1>
-                <h1 onclick="enviarId(26)">26</h1>
-                <h1 onclick="enviarId(27)">27</h1>
-                <h1 onclick="enviarId(28)">28</h1>
-                <h1 onclick="enviarId(29)">29</h1>
-                <h1 onclick="enviarId(30)">30</h1>
-                <h1 onclick="enviarId(31)">31</h1>
-                <h1 onclick="enviarId(32)">32</h1>
-                <h1 onclick="enviarId(33)">33</h1>
-                <h1 onclick="enviarId(34)">34</h1>
-                <h1 onclick="enviarId(35)">35</h1>
-                <h1 onclick="enviarId(36)">36</h1>
+                <h1 onclick="enviarId(1)" id="1">1</h1>
+                <h1 onclick="enviarId(2)" id="2">2</h1>
+                <h1 onclick="enviarId(3)" id="3">3</h1>
+                <h1 onclick="enviarId(4)" id="4">4</h1>
+                <h1 onclick="enviarId(5)" id="5">5</h1>
+                <h1 onclick="enviarId(6)" id="6">6</h1>
+                <h1 onclick="enviarId(7)" id="7">7</h1>
+                <h1 onclick="enviarId(8)" id="8">8</h1>
+                <h1 onclick="enviarId(9)" id="9">9</h1>
+                <h1 onclick="enviarId(10)" id="10">10</h1>
+                <h1 onclick="enviarId(11)" id="11">11</h1>
+                <h1 onclick="enviarId(12)" id="12">12</h1>
+                <h1 onclick="enviarId(13)" id="13">13</h1>
+                <h1 onclick="enviarId(14)" id="14">14</h1>
+                <h1 onclick="enviarId(15)" id="15">15</h1>
+                <h1 onclick="enviarId(16)" id="16">16</h1>
+                <h1 onclick="enviarId(17)" id="17">17</h1>
+                <h1 onclick="enviarId(18)" id="18">18</h1>
+                <h1 onclick="enviarId(19)" id="19">19</h1>
+                <h1 onclick="enviarId(20)" id="20">20</h1>
+                <h1 onclick="enviarId(21)" id="21">21</h1>
+                <h1 onclick="enviarId(22)" id="22">22</h1>
+                <h1 onclick="enviarId(23)" id="23">23</h1>
+                <h1 onclick="enviarId(24)" id="24">24</h1>
+                <h1 onclick="enviarId(25)" id="25">25</h1>
+                <h1 onclick="enviarId(26)" id="26">26</h1>
+                <h1 onclick="enviarId(27)" id="27">27</h1>
+                <h1 onclick="enviarId(28)" id="28">28</h1>
+                <h1 onclick="enviarId(29)" id="29">29</h1>
+                <h1 onclick="enviarId(30)" id="30">30</h1>
+                <h1 onclick="enviarId(31)" id="31">31</h1>
+                <h1 onclick="enviarId(32)" id="32">32</h1>
+                <h1 onclick="enviarId(33)" id="33">33</h1>
+                <h1 onclick="enviarId(34)" id="34">34</h1>
+                <h1 onclick="enviarId(35)" id="35">35</h1>
+                <h1 onclick="enviarId(36)" id="36">36</h1>
             </div>
         </div>
 
@@ -112,46 +112,36 @@
         window.location.href = "dashboard.html";
     }
 
-    //Função que será executada ao iniciar esta tela
-    window.onload = () => {
-        fetch('http://localhost:3333/dados/verificarAlertas')
+    //função para verificar alertas existentes e seu status para cada sensor
+    let alertas = [];
+    let statusSeguro = 0;
+    let statusAlerta = 0;
+    function verificarAlertas() {
+        fetch(`http://localhost:3333/dados/verificarAlertas`)
             .then(function (response) {
                 return response.json();
             })
-            .then(avisos => {
-                //Essa sintaxe vai coletar todos os h1 que estejam dentro da div de class .veiculos
-                const pegarTodosOsH1 = document.querySelectorAll('.veiculos h1');
-                let totalAlertas = 0;
-                let contador = 0;
-                //for para percorrer todos os h1
-                for (let i = 0; i < pegarTodosOsH1.length; i++) {
-                    //Define o h1 atual a ser verificado
-                    let h1Atual = pegarTodosOsH1[i];
-
-
-                    //define o sensorId para comparar lá no model
-                    let sensorId = parseInt(h1Atual.textContent);
-
-                    //for para percorrer os alertas dentro de cada sensorId
-                    for (let a = 0; a < avisos.length; a++) {
-                        //Comparação para ver se existe alertas dentro de um id específico
-                        if (avisos[a].fk_sensor == sensorId) {
-                            totalAlertas++;
-                            h1Atual.style.backgroundColor = '#FF0000AD';
-                            //Já que encontrou um alerta vinculado, quebra e vai para o próximo
-                            break;
-                        }
-                    }
-                    status_alerta.innerHTML = totalAlertas;
-                    contador++;
-                }
-                let totalSeguro = contador - totalAlertas;
-                status_seguro.innerHTML = totalSeguro;
-                total_sensores.innerHTML = contador;
+            .then(function (data) {
+                alertas = data
+                console.log(alertas);
+                status_seguro.innerHTML = 36 - alertas.length;
+                status_alerta.innerHTML = alertas.length;
+                tratarAlertas();
             })
             .catch(function (err) {
                 console.log(err);
             })
+    }
+    function tratarAlertas() {
+        for (let i = 0; i < alertas.length; i++) {
+            let idSensor = alertas[i].fk_sensor;
+
+            //Vai pegar o h1 respectivo ao fk_sensor que está sendo puxado
+            //ou seja, se der fk_sensor = 3, ele vai puxar o h1 de id 3
+            let h1Atual = document.getElementById(idSensor);
+
+            h1Atual.style.backgroundColor = '#FF0000AD';
+        }
     }
 </script>
 

@@ -6,7 +6,7 @@ let placa = [];
 let media = 0;
 
 async function puxar() {
-    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Selecionado:', sensorId);
 
     fetch(`http://localhost:3333/dados/puxar/${sensorId}`)
@@ -27,9 +27,34 @@ async function puxar() {
         })
 }
 
+let alertasTotais = [];
+function checarAlertas(){
+    let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    console.log('Sensor Selecionado:', sensorId);
+
+    fetch(`http://localhost:3333/dados/checarAlertas/${sensorId}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            alertasTotais = data[0].total_alertas;
+            ativarBotao();
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+}
+
+function ativarBotao(){
+    let buttonBaixa = document.querySelector('.baixa')
+    if(alertasTotais > 0){
+        buttonBaixa.style.display = 'block'
+    }
+}
+
 var valorMedia = [];
 function puxarMedia() {
-    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Média:', sensorId);
 
     fetch(`http://localhost:3333/dados/puxarMedia/${sensorId}`)
@@ -51,7 +76,7 @@ function puxarMedia() {
 
 var valorPlaca = [];
 function puxarPlaca() {
-    const sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Placa:', sensorId);
     fetch(`http://localhost:3333/dados/puxarPlaca/${sensorId}`)
         .then(function (response) {

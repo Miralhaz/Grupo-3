@@ -5,7 +5,6 @@
 /*
 comandos para mysql server
 */
-
 CREATE DATABASE sentinela;
 USE sentinela;
 
@@ -45,6 +44,13 @@ CREATE TABLE sensor (
     FOREIGN KEY (fk_veiculo) REFERENCES veiculo(idVeiculo)
 );
 
+CREATE TABLE protocolo (
+  id_protocolo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  inicio_atuacao DATE NULL,
+  temperatura_minima DECIMAL(4,2) NULL,
+  temperatura_maxima DECIMAL(4,2) NULL
+);
+
 CREATE TABLE dado_arduino (
     idDado_Arduino INT PRIMARY KEY AUTO_INCREMENT,
     temperatura DECIMAL(4,2),
@@ -53,13 +59,6 @@ CREATE TABLE dado_arduino (
     fk_protocolo INT,
     FOREIGN KEY (fk_sensor) REFERENCES sensor(idSensor),
     FOREIGN KEY (fk_protocolo) REFERENCES protocolo(id_protocolo)
-);
-
-CREATE TABLE protocolo (
-  id_protocolo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  inicio_atuacao DATE NULL,
-  temperatura_minima DECIMAL(4,2) NULL,
-  temperatura_maxima DECIMAL(4,2) NULL
 );
 
 INSERT INTO empresa_cliente (token, nome_empresa, CNPJ, CEO) VALUES
@@ -75,7 +74,6 @@ INSERT INTO empresa_cliente (token, nome_empresa, CNPJ, CEO) VALUES
 (1000, 'Transportadora Estrela', '01234567000110', 'Eduardo Pereira');
 
 INSERT INTO veiculo (placa, ano, modelo, fk_empresa) VALUES
--- Empresa 1 (10 caminhões)
 ('ABC1D23', 2020, 'Volvo FH 540', 1),
 ('DEF2G34', 2019, 'Scania R500', 1),
 ('GHI3J45', 2021, 'Mercedes-Benz Actros', 1),
@@ -85,42 +83,36 @@ INSERT INTO veiculo (placa, ano, modelo, fk_empresa) VALUES
 ('STU7T89', 2019, 'Iveco Hi-Way', 1),
 ('VWX8U90', 2021, 'MAN TGX', 1),
 ('YZA9V01', 2018, 'Volvo VM 270', 1),
-('BCD0X12', 2022, 'Scania G440', 1);
+('BCD0X12', 2022, 'Scania G440', 1),
+('EFG1Y23', 2020, 'Volvo FH 460', 1),
+('HIJ2Z34', 2019, 'Mercedes-Benz Axor', 1),
+('KLM3W45', 2021, 'DAF CF 85', 1),
+('NOP4X56', 2018, 'Volkswagen Worker', 1),
+('QRS5Y67', 2022, 'Scania R450', 1),
+('TUV6Z78', 2020, 'MAN TGS', 1),
+('VWX7W89', 2019, 'Iveco Stralis', 1),
+('YZA8X90', 2021, 'Ford Cargo 2432', 1),
+('BCD9Y01', 2018, 'Volvo FH 500', 1),
+('EFG0Z12', 2022, 'Mercedes-Benz Atron', 1),
+('KLM9B11', 2021, 'Volvo FH 460', 1),
+('NOP0C22', 2020, 'Scania R450', 1),
+('QRS1D33', 2019, 'Mercedes-Benz Axor 3344', 1),
+('TUV2E44', 2022, 'DAF XF 105', 1),
+('VWX3F55', 2018, 'MAN TGX 28.440', 1),
+('YZA4G66', 2021, 'Volkswagen Constellation 24.250', 1),
+('BCD5H77', 2020, 'Iveco Hi-Way 460', 1),
+('EFG6I88', 2019, 'Ford Cargo 2428', 1),
+('HIJ7J99', 2022, 'Scania G410', 1),
+('KLM8K00', 2018, 'Volvo VM 270', 1),
+('OPQ9L11', 2021, 'Mercedes-Benz Atron 2035', 1),
+('RST0M22', 2020, 'DAF CF 85.430', 1),
+('UVW1N33', 2019, 'MAN TGS 28.440', 1),
+('XYZ2O44', 2022, 'Volvo FH 540', 1),
+('ABC3P55', 2018, 'Scania R500', 1),
+('DEF4Q66', 2021, 'Volkswagen Worker 31.280', 1);
 
-INSERT INTO veiculo (placa, ano, modelo, fk_empresa) VALUES
--- Empresa 2 (10 caminhões)
-('EFG1Y23', 2020, 'Volvo FH 460', 2),
-('HIJ2Z34', 2019, 'Mercedes-Benz Axor', 2),
-('KLM3W45', 2021, 'DAF CF 85', 2),
-('NOP4X56', 2018, 'Volkswagen Worker', 2),
-('QRS5Y67', 2022, 'Scania R450', 2),
-('TUV6Z78', 2020, 'MAN TGS', 2),
-('VWX7W89', 2019, 'Iveco Stralis', 2),
-('YZA8X90', 2021, 'Ford Cargo 2432', 2),
-('BCD9Y01', 2018, 'Volvo FH 500', 2),
-('EFG0Z12', 2022, 'Mercedes-Benz Atron', 2),
-
--- Empresa 10 (70 caminhões)
--- Primeiros 20 com 1 motorista cada
-('KLM9B11', 2021, 'Volvo FH 460', 10),
-('NOP0C22', 2020, 'Scania R450', 10),
-('QRS1D33', 2019, 'Mercedes-Benz Axor 3344', 10),
-('TUV2E44', 2022, 'DAF XF 105', 10),
-('VWX3F55', 2018, 'MAN TGX 28.440', 10),
-('YZA4G66', 2021, 'Volkswagen Constellation 24.250', 10),
-('BCD5H77', 2020, 'Iveco Hi-Way 460', 10),
-('EFG6I88', 2019, 'Ford Cargo 2428', 10),
-('HIJ7J99', 2022, 'Scania G410', 10),
-('KLM8K00', 2018, 'Volvo VM 270', 10),
-('OPQ9L11', 2021, 'Mercedes-Benz Atron 2035', 10),
-('RST0M22', 2020, 'DAF CF 85.430', 10),
-('UVW1N33', 2019, 'MAN TGS 28.440', 10),
-('XYZ2O44', 2022, 'Volvo FH 540', 10),
-('ABC3P55', 2018, 'Scania R500', 10),
-('DEF4Q66', 2021, 'Volkswagen Worker 31.280', 10);
 
 INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
--- Sensores para empresa 1
 ('ativo', '2023-01-15', 1),
 ('ativo', '2023-02-20', 2),
 ('manutencao', '2023-03-10', 3),
@@ -131,8 +123,6 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 ('ativo', '2023-08-30', 8),
 ('manutencao', '2023-09-14', 9),
 ('ativo', '2023-10-08', 10),
-
--- Sensores para empresa 2
 ('ativo', '2023-01-10', 11),
 ('ativo', '2023-02-15', 12),
 ('manutencao', '2023-03-20', 13),
@@ -143,8 +133,6 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 ('ativo', '2023-08-15', 18),
 ('manutencao', '2023-09-20', 19),
 ('ativo', '2023-10-25', 20),
-
--- Sensores para empresa 10 (16 veículos)
 ('ativo', '2023-01-05', 21),
 ('ativo', '2023-01-10', 22),
 ('manutencao', '2023-01-15', 23),
@@ -165,6 +153,66 @@ INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
 INSERT INTO protocolo (inicio_atuacao, temperatura_minima, temperatura_maxima) VALUES
 ('2025-05-23', 0, 5);
 
+-- Sensor 1
+INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo) VALUES
+(1.23, 1, 1),
+(2.45, 1, 1),
+(3.67, 1, 1),
+(4.89, 1, 1),
+(0.56, 1, 1),
+(1.98, 1, 1),
+(3.14, 1, 1),
+(2.76, 1, 1),
+(0.34, 1, 1),
+(4.01, 1, 1);
+
+-- Sensor 5
+INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo) VALUES
+(0.45, 5, 1),
+(1.78, 5, 1),
+(2.90, 5, 1),
+(4.56, 5, 1),
+(3.12, 5, 1),
+(2.34, 5, 1),
+(0.89, 5, 1),
+(1.11, 5, 1),
+(3.98, 5, 1),
+(4.32, 5, 1);
+
+-- Sensor 23
+INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo) VALUES
+(2.65, 23, 1),
+(3.33, 23, 1),
+(4.87, 23, 1),
+(1.45, 23, 1),
+(0.76, 23, 1),
+(3.99, 23, 1),
+(2.12, 23, 1),
+(1.67, 23, 1),
+(0.23, 23, 1),
+(4.50, 23, 1);
+
+create table alertas (
+idAlerta int primary key auto_increment,
+fk_sensor int,
+fk_dado int,
+status_alerta varchar(20),
+foreign key fk_sensor(fk_sensor) references sensor(idSensor),
+foreign key fk_dado(fk_dado) references dado_arduino(idDado_Arduino),
+constraint chk_status check (status_alerta in ('verificar','verificado'))
+);
+
+insert into alertas (fk_sensor, fk_dado, status_alerta) values
+(1,1,'verificar'),
+(1,2,'verificar'),
+(2,1,'verificar'),
+(2,2,'verificar'),
+(23,1,'verificar'),
+(23,2,'verificar');
+select * from alertas;
+
+select count(idAlerta) as total_alertas from alertas where fk_sensor = 1;
+update alertas set status_alerta = 'verificado' where fk_sensor = 1;
 /*
 -- Inserindo alertas automaticamente para temperaturas críticas
 INSERT INTO alertas (descricao_alerta, fk_dado)
@@ -229,21 +277,7 @@ FROM
     veiculo v
 INNER JOIN empresa_cliente e ON v.fk_empresa = e.idEmpresa
 WHERE v.fk_motorista IS NULL;
-
-INSERT INTO dado_arduino (temperatura, fk_sensor, fk_protocolo)
-VALUES
-    (-0.75, 1, 1),
-    (0.20, 1, 1),
-    (1.35, 1, 1),
-    (2.50, 1, 1),
-    (3.10, 1, 1),
-    (4.25, 1, 1),
-    (5.00, 1, 1),
-    (3.75, 1, 1),
-    (2.00, 1, 1),
-    (-0.30, 1, 1);
 */
-
 
 
 

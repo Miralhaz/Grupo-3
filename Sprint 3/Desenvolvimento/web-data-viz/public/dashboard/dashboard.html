@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="puxar(), puxarMedia(), puxarPlaca()">
+<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas()">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -22,6 +22,9 @@
             </div>
             <div class="voltar" onclick="window.location.href='../index.html'">
                 <span class="material-symbols-outlined">arrow_back</span>
+            </div>
+            <div class="baixa" onclick="darBaixa()">
+                <span class="material-symbols-outlined" id="baixa">verified</span>
             </div>
         </div>
     </section>
@@ -95,5 +98,27 @@
         </div>
     </div>
 </body>
+<script>
+    //Função para dar baixa
+    function darBaixa() {
+        let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+        fetch(`/dados/darBaixa/${sensorId}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, "1000");
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        return false;
+    }
+</script>
 
 </html>

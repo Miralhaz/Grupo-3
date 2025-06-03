@@ -15,14 +15,26 @@ function puxarPlaca(sensorId) {
     return database.executar(instrucaoSql);
 } 
 
-function verificarAlertas(){
-    var instrucaoSql = `select fk_sensor from dado_arduino where temperatura >= 0; `;
+function checarAlertas(sensorId) {
+    var instrucaoSql = `select count(idAlerta) as total_alertas from alertas where fk_sensor = ${sensorId} and status_alerta = 'verificar';`
     return database.executar(instrucaoSql);
-}
+} 
+
+function verificarAlertas() {
+    var instrucaoSql = `select distinct fk_sensor from alertas where status_alerta = 'verificar';`
+    return database.executar(instrucaoSql);
+} 
+
+function darBaixa(sensorId) {
+    var instrucaoSql = `delete from alertas where fk_sensor = ${sensorId};`
+    return database.executar(instrucaoSql);
+} 
 
 module.exports = {
     puxar,
     puxarMedia,
     puxarPlaca,
-    verificarAlertas
+    verificarAlertas,
+    checarAlertas,
+    darBaixa
 };

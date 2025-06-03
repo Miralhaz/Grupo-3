@@ -57,9 +57,43 @@ function puxarPlaca(req, res) {
         );
 }
 
-function verificarAlertas(req,res){
+function checarAlertas(req, res) {
+    const sensorId = req.params.sensorId;
+    dadosModel.checarAlertas(sensorId)
+    .then(function (dados) {
+        if (dados.length > 0) {
+            res.status(200).json(dados);
+        } else {
+            res.status(204).send('Informações Não Encontradas!!')
+        }
+    })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao Coletar Informações! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function darBaixa(req, res) {
+    const sensorId = req.params.sensorId;
+    dadosModel.darBaixa(sensorId)
+    .then(function () {
+        res.status(200).send('Atualização realizada com sucesso!');
+    })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao Coletar Informações! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function verificarAlertas(req, res) {
     dadosModel.verificarAlertas()
-        .then(function (dados) {
+    .then(function (dados) {
         if (dados.length > 0) {
             res.status(200).json(dados);
         } else {
@@ -79,5 +113,7 @@ module.exports = {
     puxar,
     puxarMedia,
     puxarPlaca,
-    verificarAlertas
+    verificarAlertas,
+    checarAlertas,
+    darBaixa
 };

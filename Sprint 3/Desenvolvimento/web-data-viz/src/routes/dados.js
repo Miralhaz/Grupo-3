@@ -18,4 +18,12 @@ router.get("/verificarAlertas", function(req, res) {
     dadosController.verificarAlertas(req, res);
 }); 
 
+router.get("/checarAlertas/:sensorId", function(req, res) {
+    dadosController.checarAlertas(req, res);
+}); 
+
+router.post("/darBaixa/:sensorId", function (req, res) {
+    dadosController.darBaixa(req, res);
+});
+
 module.exports = router;
