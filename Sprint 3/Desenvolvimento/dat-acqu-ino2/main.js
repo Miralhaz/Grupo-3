@@ -1,4 +1,4 @@
-// importa os bibliotecas necessários
+﻿// importa os bibliotecas necessários
 const serialport = require('serialport');
 const express = require('express');
 const mysql = require('mysql2');
@@ -16,9 +16,9 @@ const serial = async (valoresSensorAnalogico) => {
     let poolBancoDados = mysql.createPool({
         host: '127.0.0.1',
         user: 'aluno',
-        password: 'sptech',
+        password: 'Sptech#2024',
         database: 'sentinela',
-        port: 3306
+        port: 3307
     }).promise();
 
     // lista as portas seriais disponíveis e procura pelo Arduino
@@ -41,6 +41,7 @@ const serial = async (valoresSensorAnalogico) => {
     });
 
     let contadorSensor = 1;
+    let contadorDado = 1
 
     // processa os dados recebidos do Arduino
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
@@ -54,13 +55,28 @@ const serial = async (valoresSensorAnalogico) => {
             await poolBancoDados.execute(
                 `INSERT INTO dado_arduino (temperatura, data_hora, fk_sensor) VALUES (?, NOW(), ?)`,
                 [sensorAnalogico, contadorSensor]
+
+                
             );
+
+            if(sensorAnalogico>0){
+                await poolBancoDados.execute(
+                    `INSERT INTO alertas (fk_sensor,fk_dado,status_alerta) VALUES (?, ?, 'verificar')`,
+                    [contadorSensor,contadorDado]
+    
+                
+                );
+            }
             console.log(`Inserido no banco: ${sensorAnalogico}, no sensor: ${contadorSensor}`);
 
             contadorSensor++;
+            contadorDado++
             if (contadorSensor > 36) {
                 contadorSensor = 1;
+                
             }
+
+            
         }
     });
 };
