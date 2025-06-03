@@ -240,46 +240,73 @@ section.pizza .grafico-pizza{
 section.informacoes .container{
     padding: 0 0 0 10%;
 }
-section.informacoes .all-informacoes-card h2{
+
+section.informacoes .all-informacoes-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+section.informacoes .all-informacoes-card .tituloInfo{
     color: navy;
     font-size: 30px;
     margin-bottom: 10px;
+    font-weight: 800;
+    margin-left: 20px;
 }
 section.informacoes .all-informacoes-card p{
     margin-bottom: 10px;
 }
 section.informacoes .all-informacoes-card span{
     font-weight: bold;
+    color: navy ;
 }
 section.informacoes h1{
     color: navy;
-    font-size: 35px;
+    font-size: 55px;
     padding: 30px;
+    text-align: center;
+    margin-left: -50px;
+
 }
 section.informacoes .info-card{
     border: solid 1px navy;
     box-shadow: 4px 4px 4px rgba(0, 0, 128, 0.521);
     padding: 20px;
-    width: 500px;
+    width: 1000px;
     margin-right: 90px;
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 20px;
     border-radius: 10px;
     transition: 0.3s;
+    align-items: center;
+    gap: 10px;
 }
+
+
+
+ 
+
+
+
+
 section.informacoes .info-card:hover{
-    transform: scale(1.05);
+    transform: scale(1.05);            
 }
 section.informacoes .first-informacoes{
     display: flex;
+    flex-direction: column;
 }
 section.informacoes .second-informacoes{
     display: flex;
+    flex-direction: column;
 }
 
 section .info-card .blocoAzul{
     display: flex;
-    height: 17px;
+    height: 17px;   
     width: 17px;
     background-color: navy;
 }
@@ -287,7 +314,7 @@ section .info-card .blocoAzul{
 section .info-card .alertas{
     display: flex;
     margin-left: 5px;
-    color: #fafa34ef;
+   
 }
 .Azul{
     display: flex;
