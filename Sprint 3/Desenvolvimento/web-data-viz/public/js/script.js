@@ -104,6 +104,8 @@ function tratarDados() {
     console.log('Resultados dos dados tratados: ', temperaturas, diasSemana, horas)
 }
 
+let alertasSemanais = [0,0,0,0,0,0,0]
+
 function alertasDias() {
     let segunda = 0;
     let terca = 0;
@@ -112,26 +114,68 @@ function alertasDias() {
     let sexta = 0;
     let sabado = 0;
     let domingo = 0;
+    let totalAlertas = 0;
 
     for (let i = 0; i < tudo.length; i++) {
-        if (tudo[i].dia_semana == 'Wednesday' && tudo[i].temperatura >= 0) {
+        if (tudo[i].dia_semana == 'Monday' && tudo[i].temperatura >= 0) {
+            segunda++
+            alertasSemanais[0] += 1
+        }else if(tudo[i].dia_semana == 'Tuesday' && tudo[i].temperatura >= 0){
             terca++
+            alertasSemanais[1] += 1
+        }else if(tudo[i].dia_semana == 'Wednesday' && tudo[i].temperatura >= 0){
+            quarta++
+            alertasSemanais[2] += 1
+        }else if(tudo[i].dia_semana == 'Thursday' && tudo[i].temperatura >= 0){
+            quinta++
+            alertasSemanais[3] += 1
+        }else if(tudo[i].dia_semana == 'Friday' && tudo[i].temperatura >= 0){
+            sexta++
+            alertasSemanais[4] += 1
+        }else if(tudo[i].dia_semana == 'Saturday' && tudo[i].temperatura >= 0){
+            sabado++
+            alertasSemanais[5] += 1
+        }else if(tudo[i].dia_semana == 'Sunday' && tudo[i].temperatura >= 0){
+            domingo++
+            alertasSemanais[6] += 1
         }
     }
 
-    if (terca > sexta) {
-        dia_alertas.innerHTML = `Terça-Feira`
-    } else {
-        dia_alertas.innerHTML = `Sexta-Feira`
+    let diaComMaisAlertas = 0;
+    let maisAlertas = 0;
+    let diaDaSemana = ""
+
+    for(let i = 0; i < alertasSemanais.length; i++){
+        if(maisAlertas < alertasSemanais[i]){
+            diaComMaisAlertas = i
+            maisAlertas = alertasSemanais[i]
+
+            if(i == 0){
+                diaDaSemana = 'Sengunda-feira'
+            }else if(i == 1){
+                diaDaSemana = 'Terça-feira'
+            }else if(i == 2){
+                diaDaSemana = 'Quarta-feira'
+            }else if(i == 3){
+                diaDaSemana = 'Quinta-feira'
+            }else if(i == 4){
+                diaDaSemana = 'Sexta-feira'
+            }else if(i == 5){
+                diaDaSemana = 'Sabado'
+            }else if(i == 6){
+                diaDaSemana = 'Domingo'
+            }
+        }
     }
 
-    if (sexta > terca) {
-        alertas_dia.innerHTML = `Alertas no dia: ${sexta}`
-    } else {
-        alertas_dia.innerHTML = `Alertas no dia: ${terca}`
-    }
+        dia_alertas.innerHTML = diaDaSemana
 
-    total_alertas.innerHTML = `${terca + sexta} Alertas`
+
+
+
+    totalAlertas = (segunda + terca + quarta + quinta + sexta + sabado + domingo)
+
+    total_alertas.innerHTML = `${totalAlertas} Alertas`
 
     //Gráfico de Barras
     const ctx = document.getElementById('myChart');

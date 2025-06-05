@@ -26,4 +26,6 @@ router.post("/darBaixa/:sensorId", function (req, res) {
     dadosController.darBaixa(req, res);
 });
 
+
+
 module.exports = router;
