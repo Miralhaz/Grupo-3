@@ -109,7 +109,7 @@ function alertasDias() {
     let terca = 0;
     let quarta = 0;
     let quinta = 0;
-    let sexta = 2;
+    let sexta = 0;
     let sabado = 0;
     let domingo = 0;
 
