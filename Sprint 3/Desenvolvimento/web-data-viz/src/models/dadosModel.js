@@ -10,6 +10,11 @@ function puxarMedia(sensorId) {
     return database.executar(instrucaoSql);
 }
 
+function pegarTelefone(sensorId) {
+    var instrucaoSql = `select telefone from veiculo where idVeiculo = ${sensorId};`
+    return database.executar(instrucaoSql);
+} 
+
 function puxarPlaca(sensorId) {
     var instrucaoSql = `select placa from veiculo v join sensor s on v.idVeiculo = s.fk_veiculo where fk_veiculo = ${sensorId};`
     return database.executar(instrucaoSql);
@@ -36,5 +41,6 @@ module.exports = {
     puxarPlaca,
     verificarAlertas,
     checarAlertas,
-    darBaixa
+    darBaixa,
+    pegarTelefone
 };

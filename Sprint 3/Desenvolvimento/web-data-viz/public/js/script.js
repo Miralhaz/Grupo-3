@@ -267,7 +267,7 @@ function tratarTemperatura() {
         data: {
             labels: horaTemperatura,
             datasets: [{
-                label: 'Temperatura em Tempo Real',
+                label: 'Temperatura em Tempo Real a Cada 1 Minuto e 15 Segundos',
                 data: temperaturaReal,
                 borderWidth: 1,
                 borderColor: '#0057d9',

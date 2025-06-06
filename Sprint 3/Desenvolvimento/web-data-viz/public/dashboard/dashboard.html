@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas()">
+<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas(), pegarTelefone()">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -33,6 +33,9 @@
         <section class="indicadores">
             <div class="container">
                 <h1>DashBoard | Análise de Veículo</h1>
+                <div class="div_telefone">
+                <h3>Telefone de Contato:</h3><h3 id="h3_telefone"></h3>
+                </div>
                 <section class="pizza">
                     <div class="grafico-pizza">
                         <h3 class="tituloPizza">Total de alertas durante a semana</h3>
@@ -50,25 +53,23 @@
                             <h3 id="alertas_dia"></h3>
                         </div>
                         <div class="card-indicador">
-                            <p>Média de Temperatura</p>
+                            <p>Média de Temperatura (24h)</p>
                             <div class="text">
                                 <span class="material-symbols-outlined">warning</span>
                                 <h2 id="media_temperatura"></h2>
                             </div>
-                            <h3>Últimas 24h</h3>
                         </div>
                     </div>
                     <div class="second">
                         <div class="card-indicador" id="second">
-                            <p>Total de Alertas</p>
+                            <p>Total de Alertas (Semana)</p>
                             <div class="text">
                                 <span class="material-symbols-outlined">warning</span>
                                 <h2 id="total_alertas"></h2>
                             </div>
-                            <h3>Valor Semanal</h3>
                         </div>
                         <div class="card-indicador" id="third">
-                            <p>Placa do caminhão:</p>
+                            <p>Placa do caminhão</p>
                             <div class="text">
                                 <span class="material-symbols-outlined" id="icon-tag">warning</span>
                                 <h2 id="placa_caminhao"></h2>
@@ -90,7 +91,6 @@
             <section class="line">
                 <div class="container">
                     <div class="grafico-line">
-                        <h3 class="tituloLinha">Temperatura em tempo real a cada 1 minuto e 15 segundos</h3>
                         <canvas id="chart-line" class="chart-container"></canvas>
                     </div>
                 </div>
@@ -119,6 +119,27 @@
             });
         return false;
     }
+
+    //Função para Pegar telefone de contato do caminhão
+    let telefone = '';
+    function pegarTelefone() {
+    let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
+    console.log('Sensor Média:', sensorId);
+
+    fetch(`http://localhost:3333/dados/pegarTelefone/${sensorId}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            telefone = data
+            h3_telefone.innerHTML = telefone[0].telefone;
+            console.log('Telefone do Caminhoneiro ', telefone);
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        })
+};
 </script>
 
 </html>

@@ -22,6 +22,10 @@ router.get("/checarAlertas/:sensorId", function(req, res) {
     dadosController.checarAlertas(req, res);
 }); 
 
+router.get("/pegarTelefone/:sensorId", function(req, res) {
+    dadosController.pegarTelefone(req, res);
+}); 
+
 router.post("/darBaixa/:sensorId", function (req, res) {
     dadosController.darBaixa(req, res);
 });

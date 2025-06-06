@@ -32,6 +32,7 @@ CREATE TABLE veiculo (
     placa VARCHAR(8)  UNIQUE,
     ano INT,
     modelo VARCHAR(45),
+    telefone varchar(30),
     fk_empresa INT,
 	FOREIGN KEY (fk_empresa) REFERENCES empresa_cliente(idEmpresa)
 );
@@ -73,43 +74,44 @@ INSERT INTO empresa_cliente (token, nome_empresa, CNPJ, CEO) VALUES
 (900 ,'Frota Pesada', '90123456000109', 'Lucas Mendes'),
 (1000, 'Transportadora Estrela', '01234567000110', 'Eduardo Pereira');
 
-INSERT INTO veiculo (placa, ano, modelo, fk_empresa) VALUES
-('ABC1D23', 2020, 'Volvo FH 540', 1),
-('DEF2G34', 2019, 'Scania R500', 1),
-('GHI3J45', 2021, 'Mercedes-Benz Actros', 1),
-('JKL4M56', 2018, 'Volkswagen Constellation', 1),
-('MNO5P67', 2022, 'Ford Cargo 2429', 1),
-('PQR6S78', 2020, 'DAF XF 480', 1),
-('STU7T89', 2019, 'Iveco Hi-Way', 1),
-('VWX8U90', 2021, 'MAN TGX', 1),
-('YZA9V01', 2018, 'Volvo VM 270', 1),
-('BCD0X12', 2022, 'Scania G440', 1),
-('EFG1Y23', 2020, 'Volvo FH 460', 1),
-('HIJ2Z34', 2019, 'Mercedes-Benz Axor', 1),
-('KLM3W45', 2021, 'DAF CF 85', 1),
-('NOP4X56', 2018, 'Volkswagen Worker', 1),
-('QRS5Y67', 2022, 'Scania R450', 1),
-('TUV6Z78', 2020, 'MAN TGS', 1),
-('VWX7W89', 2019, 'Iveco Stralis', 1),
-('YZA8X90', 2021, 'Ford Cargo 2432', 1),
-('BCD9Y01', 2018, 'Volvo FH 500', 1),
-('EFG0Z12', 2022, 'Mercedes-Benz Atron', 1),
-('KLM9B11', 2021, 'Volvo FH 460', 1),
-('NOP0C22', 2020, 'Scania R450', 1),
-('QRS1D33', 2019, 'Mercedes-Benz Axor 3344', 1),
-('TUV2E44', 2022, 'DAF XF 105', 1),
-('VWX3F55', 2018, 'MAN TGX 28.440', 1),
-('YZA4G66', 2021, 'Volkswagen Constellation 24.250', 1),
-('BCD5H77', 2020, 'Iveco Hi-Way 460', 1),
-('EFG6I88', 2019, 'Ford Cargo 2428', 1),
-('HIJ7J99', 2022, 'Scania G410', 1),
-('KLM8K00', 2018, 'Volvo VM 270', 1),
-('OPQ9L11', 2021, 'Mercedes-Benz Atron 2035', 1),
-('RST0M22', 2020, 'DAF CF 85.430', 1),
-('UVW1N33', 2019, 'MAN TGS 28.440', 1),
-('XYZ2O44', 2022, 'Volvo FH 540', 1),
-('ABC3P55', 2018, 'Scania R500', 1),
-('DEF4Q66', 2021, 'Volkswagen Worker 31.280', 1);
+INSERT INTO veiculo (placa, ano, modelo, fk_empresa, telefone) VALUES
+('ABC1D23', 2020, 'Volvo FH 540', 1, '(11) 91234-5678'),
+('DEF2G34', 2019, 'Scania R500', 1, '(21) 93456-7890'),
+('GHI3J45', 2021, 'Mercedes-Benz Actros', 1, '(31) 95678-9012'),
+('JKL4M56', 2018, 'Volkswagen Constellation', 1, '(41) 97890-1234'),
+('MNO5P67', 2022, 'Ford Cargo 2429', 1, '(51) 92345-6789'),
+('PQR6S78', 2020, 'DAF XF 480', 1, '(61) 98765-4321'),
+('STU7T89', 2019, 'Iveco Hi-Way', 1, '(71) 94321-5678'),
+('VWX8U90', 2021, 'MAN TGX', 1, '(81) 95432-1987'),
+('YZA9V01', 2018, 'Volvo VM 270', 1, '(91) 96543-2109'),
+('BCD0X12', 2022, 'Scania G440', 1, '(85) 97654-3210'),
+('EFG1Y23', 2020, 'Volvo FH 460', 1, '(98) 98765-4320'),
+('HIJ2Z34', 2019, 'Mercedes-Benz Axor', 1, '(83) 91234-8765'),
+('KLM3W45', 2021, 'DAF CF 85', 1, '(67) 93456-7891'),
+('NOP4X56', 2018, 'Volkswagen Worker', 1, '(84) 95678-9021'),
+('QRS5Y67', 2022, 'Scania R450', 1, '(82) 97890-1342'),
+('TUV6Z78', 2020, 'MAN TGS', 1, '(86) 92345-6890'),
+('VWX7W89', 2019, 'Iveco Stralis', 1, '(92) 98765-4300'),
+('YZA8X90', 2021, 'Ford Cargo 2432', 1, '(47) 94321-5768'),
+('BCD9Y01', 2018, 'Volvo FH 500', 1, '(53) 95432-1887'),
+('EFG0Z12', 2022, 'Mercedes-Benz Atron', 1, '(73) 96543-2110'),
+('KLM9B11', 2021, 'Volvo FH 460', 1, '(88) 97654-3221'),
+('NOP0C22', 2020, 'Scania R450', 1, '(89) 98765-4332'),
+('QRS1D33', 2019, 'Mercedes-Benz Axor 3344', 1, '(96) 91234-8789'),
+('TUV2E44', 2022, 'DAF XF 105', 1, '(95) 93456-7870'),
+('VWX3F55', 2018, 'MAN TGX 28.440', 1, '(94) 95678-9011'),
+('YZA4G66', 2021, 'Volkswagen Constellation 24.250', 1, '(93) 97890-1323'),
+('BCD5H77', 2020, 'Iveco Hi-Way 460', 1, '(91) 92345-6778'),
+('EFG6I88', 2019, 'Ford Cargo 2428', 1, '(87) 98765-4399'),
+('HIJ7J99', 2022, 'Scania G410', 1, '(86) 94321-5698'),
+('KLM8K00', 2018, 'Volvo VM 270', 1, '(85) 95432-1900'),
+('OPQ9L11', 2021, 'Mercedes-Benz Atron 2035', 1, '(84) 96543-2134'),
+('RST0M22', 2020, 'DAF CF 85.430', 1, '(83) 97654-3245'),
+('UVW1N33', 2019, 'MAN TGS 28.440', 1, '(82) 98765-4356'),
+('XYZ2O44', 2022, 'Volvo FH 540', 1, '(81) 91234-8998'),
+('ABC3P55', 2018, 'Scania R500', 1, '(11) 93456-7901'),
+('DEF4Q66', 2021, 'Volkswagen Worker 31.280', 1, '(21) 95678-9032');
+
 
 
 INSERT INTO sensor (status, ultima_manutencao, fk_veiculo) VALUES
@@ -162,6 +164,11 @@ foreign key fk_sensor(fk_sensor) references sensor(idSensor),
 foreign key fk_dado(fk_dado) references dado_arduino(idDado_Arduino),
 constraint chk_status check (status_alerta in ('verificar','verificado'))
 );
+
+insert into alertas (fk_sensor, fk_dado, status_alerta) values
+(1,1,'verificar'),
+(2,1,'verificar'),
+(3,1,'verificar'); 
 
 select count(idAlerta) as total_alertas from alertas where fk_sensor = 1;
 update alertas set status_alerta = 'verificado' where fk_sensor = 1;

@@ -8,7 +8,8 @@ html {
     scroll-behavior: smooth;
 }
 body{
-    background-color:   white;
+    background-color: white;
+    overflow: hidden;
 }
 .container{
     max-width: 1280px;
@@ -157,6 +158,7 @@ section.indicadores .text{
 }
 section.indicadores .all-indicadores{
     display: flex;
+    margin-top: 20px;
 }
 section.indicadores .container{
     padding: 0 8%;
@@ -176,6 +178,9 @@ section.indicadores .card-indicador{
     padding:15px;
     margin-right: 20px;
 }
+section.indicadores .card-indicador .text{
+    margin-top: 5px;
+}
 #first{
     margin-bottom: 20px;
 }
@@ -184,7 +189,10 @@ section.indicadores .card-indicador{
 }
 #third{
     margin-bottom: 20px;
-    height: 106px;
+    height: 90px;
+}
+#third .text{
+    margin-top: -10px;
 }
 
 /* GRÁFICOS */
@@ -204,7 +212,7 @@ section.line h3.tituloLinha {
 section.line .grafico-line{
     position: relative;
     width: 550px;
-    transform: scale(0.9);
+    transform: scale(1);
 }
 .first-combo-graficos{
     display: flex;
@@ -344,4 +352,13 @@ section .info-card .blocoLaranja{
 }
 .baixa{
     display: none;
+}
+section.indicadores h3{
+    color: navy;
+}
+.div_telefone {
+    display: flex;
+}
+.div_telefone #h3_telefone{
+    margin-left: 10px;
 }

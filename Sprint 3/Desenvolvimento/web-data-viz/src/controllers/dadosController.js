@@ -57,6 +57,25 @@ function puxarPlaca(req, res) {
         );
 }
 
+function pegarTelefone(req, res) {
+    const sensorId = req.params.sensorId;
+    dadosModel.pegarTelefone(sensorId)
+    .then(function (dados) {
+        if (dados.length > 0) {
+            res.status(200).json(dados);
+        } else {
+            res.status(204).send('Informações Não Encontradas!!')
+        }
+    })
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao Coletar Informações! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function checarAlertas(req, res) {
     const sensorId = req.params.sensorId;
     dadosModel.checarAlertas(sensorId)
@@ -115,5 +134,6 @@ module.exports = {
     puxarPlaca,
     verificarAlertas,
     checarAlertas,
-    darBaixa
+    darBaixa,
+    pegarTelefone
 };
