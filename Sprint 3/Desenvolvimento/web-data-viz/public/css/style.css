@@ -1,25 +1,30 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
 html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     background-color: white;
 }
-#fundo-sem-scroll{
+
+#fundo-sem-scroll {
     overflow: hidden;
 }
-.container{
+
+.container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 10%;
 }
+
 /* HEADER LATERAL */
-section.header .header-lateral{
+section.header .header-lateral {
     position: fixed;
     height: 100%;
     width: 120px;
@@ -28,17 +33,19 @@ section.header .header-lateral{
     text-align: center;
 
 }
-section.header .header-lateral span{
+
+section.header .header-lateral span {
     color: white;
     font-size: 70px;
     cursor: pointer;
     transition: 0.3s;
 }
-section.header .header-lateral span:hover{
+
+section.header .header-lateral span:hover {
     transform: scale(1.10);
 }
 
-section.header .caminhoes-option{
+section.header .caminhoes-option {
     background-color: transparent;
     font-weight: bold;
     color: white;
@@ -49,21 +56,34 @@ section.header .caminhoes-option{
     margin-bottom: 20px;
 }
 
-section.header .caminhoes-option option{
+section.header .caminhoes-option option {
     color: navy;
 }
 
 /* INDICADORES */
-section.indicadores h1{
+section.indicadores h1 {
     color: navy;
     font-size: 35px;
     padding: 30px;
 }
-section.indicadores .topo{
+
+section.indicadores .topo {
     display: flex;
     flex-direction: row;
 }
-section.indicadores .nome-user{
+
+section.indicadores .nome-user {
+    border: solid 1px navy;
+    box-shadow: 4px 4px 4px navy;
+    border-radius: 10px;
+    padding: 20 px;
+    margin-right: 30px;
+    text-align: center;
+    color: navy;
+    max-width: 300px;
+}
+
+section.indicadores .icone-refresh {
     border: solid 1px navy;
     box-shadow: 4px 4px 4px navy;
     border-radius: 10px;
@@ -73,21 +93,13 @@ section.indicadores .nome-user{
     color: navy;
     max-width: 300px;
 }
-section.indicadores .icone-refresh{
-    border: solid 1px navy;
-    box-shadow: 4px 4px 4px navy;
-    border-radius: 10px;
-    padding: 20px;
-    margin-right: 30px;
-    text-align: center;
-    color: navy;
-    max-width: 300px;
-}
-section.indicadores .all-cards{
+
+section.indicadores .all-cards {
     display: flex;
     margin-left: 30px;
 }
-section.indicadores .card{
+
+section.indicadores .card {
     border: solid 1px navy;
     box-shadow: 4px 4px 4px navy;
     border-radius: 10px;
@@ -96,20 +108,22 @@ section.indicadores .card{
     text-align: center;
     color: navy;
 }
-section.indicadores .card h2{
+
+section.indicadores .card h2 {
     font-size: 40px;
     margin-top: 5px;
-    
+
 }
 
 /* VEÍCULOS */
-section.veiculos-all .veiculos{
+section.veiculos-all .veiculos {
     display: flex;
     flex-wrap: wrap;
     width: 1100px;
     padding: 50px 0px;
 }
-section.veiculos-all .veiculos h1{
+
+section.veiculos-all .veiculos h1 {
     border: solid 2.5px navy;
     font-size: 50px;
     width: 100px;
@@ -121,13 +135,16 @@ section.veiculos-all .veiculos h1{
     border-radius: 5px;
     transition: 0.3s;
 }
-section.veiculos-all .veiculos h1:hover{
+
+section.veiculos-all .veiculos h1:hover {
     transform: scale(1.05);
 }
-section.veiculos-all .veiculos .alerta{
+
+section.veiculos-all .veiculos .alerta {
     background-color: rgba(255, 0, 0, 0.678);
 }
-section.veiculos-all .legenda-veiculos{
+
+section.veiculos-all .legenda-veiculos {
     border: solid 1px navy;
     box-shadow: 4px 4px 4px navy;
     position: relative;
@@ -146,58 +163,68 @@ section.legenda {
 }
 
 /* LEGENDA */
-section.legenda .positivo .verde{
+section.legenda .positivo .verde {
     background-color: rgba(0, 211, 0, 0.534);
     width: 50px;
     height: 30px;
     border-radius: 20px;
 }
-section.legenda .positivo{
+
+section.legenda .positivo {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     margin-top: 10px;
 }
-section.legenda .positivo h1{
+
+section.legenda .positivo h1 {
     margin-left: 20px;
     font-size: 30px;
 }
-section.legenda .negativo{
+
+section.legenda .negativo {
     display: flex;
     align-items: center;
 }
-section.legenda .negativo .vermelho{
+
+section.legenda .negativo .vermelho {
     background-color: rgba(255, 0, 0, 0.678);
     width: 50px;
     height: 30px;
     border-radius: 20px;
 }
-section.legenda .negativo h1{
+
+section.legenda .negativo h1 {
     margin-left: 20px;
     font-size: 30px;
 }
 
 /* DASHBOARD */
-section.indicadores .text{
+section.indicadores .text {
     display: flex;
     color: navy;
     font-size: 20px;
 }
-section.indicadores .all-indicadores{
+
+section.indicadores .all-indicadores {
     display: flex;
     margin-top: 20px;
 }
-section.indicadores .container{
+
+section.indicadores .container {
     padding: 0 8%;
 }
-section.indicadores .text span{
+
+section.indicadores .text span {
     font-size: 30px;
 }
-section.indicadores p{
+
+section.indicadores p {
     text-align: center;
     color: rgba(0, 0, 0, 0.651);
 }
-section.indicadores .card-indicador{
+
+section.indicadores .card-indicador {
     border: solid 1px navy;
     box-shadow: 4px 4px 4px rgba(0, 0, 128, 0.514);
     border-radius: 10px;
@@ -205,27 +232,32 @@ section.indicadores .card-indicador{
     padding: 15px;
     margin-right: 20px;
 }
-section.indicadores .card-indicador .text{
+
+section.indicadores .card-indicador .text {
     margin-top: 5px;
 }
-#first{
+
+#first {
     margin-bottom: 20px;
 }
-#second{
+
+#second {
     margin-bottom: 20px;
 }
-#third{
+
+#third {
     margin-bottom: 20px;
     height: 90px;
 }
-#third .text{
+
+#third .text {
     margin-top: -10px;
 }
 
 /* GRÁFICOS */
-section.bar .grafico-bar{
-    position: relative; 
-    width:550px;
+section.bar .grafico-bar {
+    position: relative;
+    width: 550px;
     margin-right: 60px;
 }
 
@@ -233,18 +265,20 @@ section.line h3.tituloLinha {
     color: navy;
     margin-top: 0px;
     text-align: center;
-    font-size:larger;
+    font-size: larger;
 }
 
-section.line .grafico-line{
+section.line .grafico-line {
     position: relative;
     width: 550px;
     transform: scale(1);
 }
-.first-combo-graficos{
+
+.first-combo-graficos {
     display: flex;
     padding: 0px 0 0 100px;
 }
+
 section.pizza {
     position: absolute;
     right: 20px;
@@ -255,7 +289,7 @@ section.indicadores .container h3.tituloPizza {
     color: navy;
 }
 
-section.pizza .grafico-pizza{
+section.pizza .grafico-pizza {
     position: relative;
     width: 450px;
     height: 300px;
@@ -263,7 +297,7 @@ section.pizza .grafico-pizza{
 }
 
 /* ESTÉTICA MELHOR */
-.linha-separacao{
+.linha-separacao {
     width: 40%;
     background-color: navy;
     height: 1px;
@@ -272,7 +306,7 @@ section.pizza .grafico-pizza{
 }
 
 /* INFORMAÇÕES ADICIONAIS */
-section.informacoes .container{
+section.informacoes .container {
     padding: 0 0 0 10%;
 }
 
@@ -284,21 +318,24 @@ section.informacoes .all-informacoes-card {
     margin-top: 20px;
 }
 
-section.informacoes .all-informacoes-card .tituloInfo{
+section.informacoes .all-informacoes-card .tituloInfo {
     color: navy;
     font-size: 30px;
     margin-bottom: 10px;
     font-weight: 800;
     margin-left: 20px;
 }
-section.informacoes .all-informacoes-card p{
+
+section.informacoes .all-informacoes-card p {
     margin-bottom: 10px;
 }
-section.informacoes .all-informacoes-card span{
+
+section.informacoes .all-informacoes-card span {
     font-weight: bold;
-    color: navy ;
+    color: navy;
 }
-section.informacoes h1{
+
+section.informacoes h1 {
     color: navy;
     font-size: 55px;
     padding: 30px;
@@ -306,7 +343,8 @@ section.informacoes h1{
     margin-left: -50px;
 
 }
-section.informacoes .info-card{
+
+section.informacoes .info-card {
     border: solid 1px navy;
     box-shadow: 4px 4px 4px rgba(0, 0, 128, 0.521);
     padding: 20px;
@@ -319,65 +357,75 @@ section.informacoes .info-card{
     align-items: center;
     gap: 10px;
 }
-section.informacoes .info-card:hover{
-    transform: scale(1.05);            
+
+section.informacoes .info-card:hover {
+    transform: scale(1.05);
 }
-section.informacoes .first-informacoes{
-    display: flex;
-    flex-direction: column;
-}
-section.informacoes .second-informacoes{
+
+section.informacoes .first-informacoes {
     display: flex;
     flex-direction: column;
 }
 
-section .info-card .blocoAzul{
+section.informacoes .second-informacoes {
     display: flex;
-    height: 17px;   
+    flex-direction: column;
+}
+
+section .info-card .blocoAzul {
+    display: flex;
+    height: 17px;
     width: 17px;
     background-color: navy;
 }
 
-section .info-card .alertas{
+section .info-card .alertas {
     display: flex;
     margin-left: 5px;
-   
+
 }
-.Azul{
+
+.Azul {
     display: flex;
 }
 
-.Vermelho{
+.Vermelho {
     display: flex;
 }
 
-.Laranja{
+.Laranja {
     display: flex;
 }
 
-section .info-card .blocoVermelho{
+section .info-card .blocoVermelho {
     height: 17px;
     width: 17px;
-    background-color:#FF0000
+    background-color: #FF0000
 }
 
-section .info-card .blocoLaranja{
+section .info-card .blocoLaranja {
     height: 17px;
     width: 17px;
-    background-color:#fea42e
+    background-color: #fea42e
 }
-#placa_caminhao, #icon-tag{
+
+#placa_caminhao,
+#icon-tag {
     margin-top: 15px;
 }
-.baixa{
+
+.baixa {
     display: none;
 }
-section.indicadores h3{
+
+section.indicadores h3 {
     color: navy;
 }
+
 .div_telefone {
     display: flex;
 }
-.div_telefone #h3_telefone{
+
+.div_telefone #h3_telefone {
     margin-left: 10px;
 }
