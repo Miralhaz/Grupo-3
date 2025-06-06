@@ -11,24 +11,40 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="verificarAlertas()">
+<body onload="verificarAlertas()" id="fundo-sem-scroll">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
                 <span class="material-symbols-outlined">dashboard</span>
+                <span style="color: white; font-size: xx-large">Dash</span>
             </div>
+            <br>
             <div class="info" onclick="window.location.href='info.html'">
                 <span class="material-symbols-outlined">info</span>
+                <span style="color: white; font-size: xx-large">Infos</span>
             </div>
+            <br>
             <div class="voltar" onclick="window.location.href='../index.html'">
                 <span class="material-symbols-outlined">arrow_back</span>
+                <span style="color: white; font-size: xx-large">Sair</span>
             </div>
             <div class="caixa-info"></div>
         </div>
     </section>
     <section class="indicadores">
         <div class="container">
-            <h1>DashBoard | Sensores </h1>
+            <h1> DashBoard | Sensores da Frota
+                <br>
+                <br>
+                <div class="topo">
+                    <div class="nome-user">
+                        Olá, <span id="usuario_ativo"></span>
+                    </div>
+                    <div  class="icone-refresh">
+                        <button style="background-color: transparent; border: none; color: navy; cursor: pointer;" onclick="recarregarPagina()" class="material-symbols-outlined">refresh</button>
+                    </div>
+                </div>
+            </h1>
             <div class="all-cards">
                 <div class="card">
                     <h3>Status Ativos</h3>
@@ -91,11 +107,11 @@
             <div class="legenda-veiculos">
                 <div class="positivo">
                     <div class="verde"></div>
-                    <h1>Temperatura Adequada</h1>
+                    <h1>Adequado</h1>
                 </div>
                 <div class="negativo">
                     <div class="vermelho"></div>
-                    <h1>Temperatura Crítica</h1>
+                    <h1>Verificar</h1>
                 </div>
             </div>
         </section>
@@ -143,6 +159,22 @@
             h1Atual.style.backgroundColor = '#FF0000AD';
         }
     }
+
+    // Chamar o nome do usuário do login para a página inicial da Dash
+    let usuario_ativo = document.getElementById('usuario_ativo')
+    var usuarioFormatar = sessionStorage.NOME_USUARIO;
+    let nomeDefinitivo = usuarioFormatar.charAt(0).toUpperCase() + usuarioFormatar.slice(1)
+
+    if (sessionStorage.NOME_USUARIO) {
+        usuario_ativo.innerHTML = `${nomeDefinitivo} !`
+    } else {
+        usuario_ativo.innerHTML = 'usuário'
+    }
+
+    function recarregarPagina(){
+        location.reload()
+    }
+
 </script>
 
 </html>

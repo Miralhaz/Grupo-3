@@ -233,8 +233,8 @@ function gerarGraficoPizza() {
                 data: [alertaAtencao, alertaRisco, alertaCritico],
                 borderWidth: 1,
                 backgroundColor: [
-                    '#fafa34ef',
                     'orange',
+                    '#fafa34ef',
                     'red'
                 ],
                 borderColor: 'white',

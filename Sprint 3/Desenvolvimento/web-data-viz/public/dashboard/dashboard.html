@@ -11,20 +11,27 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas(), pegarTelefone()">
+<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas(), pegarTelefone()" id="fundo-sem-scroll">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
                 <span class="material-symbols-outlined">dashboard</span>
+                <span style="color: white; font-size: xx-large">Dash</span>
             </div>
+            <br>
             <div class="info" onclick="window.location.href='info.html'">
                 <span class="material-symbols-outlined">info</span>
+                <span style="color: white; font-size: xx-large">Infos</span>
             </div>
+            <br>
             <div class="voltar" onclick="window.location.href='../index.html'">
                 <span class="material-symbols-outlined">arrow_back</span>
+                <span style="color: white; font-size: xx-large">Sair</span>
             </div>
+            <br>
             <div class="baixa" onclick="darBaixa()">
                 <span class="material-symbols-outlined" id="baixa">verified</span>
+                <span style="color: white; font-size: x-large">Verificar</span>
             </div>
         </div>
     </section>
