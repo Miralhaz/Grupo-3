@@ -133,7 +133,7 @@
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Média:', sensorId);
 
-    fetch(`http://localhost:3333/dados/pegarTelefone/${sensorId}`)
+    fetch(`/dados/pegarTelefone/${sensorId}`)
         .then(function (response) {
             return response.json();
         })

@@ -9,7 +9,7 @@ async function puxar() {
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Selecionado:', sensorId);
 
-    fetch(`http://localhost:3333/dados/puxar/${sensorId}`)
+    fetch(`/dados/puxar/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
@@ -32,7 +32,7 @@ function checarAlertas(){
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Selecionado:', sensorId);
 
-    fetch(`http://localhost:3333/dados/checarAlertas/${sensorId}`)
+    fetch(`/dados/checarAlertas/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
@@ -57,7 +57,7 @@ function puxarMedia() {
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Média:', sensorId);
 
-    fetch(`http://localhost:3333/dados/puxarMedia/${sensorId}`)
+    fetch(`/dados/puxarMedia/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
@@ -78,7 +78,7 @@ var valorPlaca = [];
 function puxarPlaca() {
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Placa:', sensorId);
-    fetch(`http://localhost:3333/dados/puxarPlaca/${sensorId}`)
+    fetch(`/dados/puxarPlaca/${sensorId}`)
         .then(function (response) {
             return response.json();
         })

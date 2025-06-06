@@ -133,7 +133,7 @@
     let statusSeguro = 0;
     let statusAlerta = 0;
     function verificarAlertas() {
-        fetch(`http://localhost:3333/dados/verificarAlertas`)
+        fetch(`/dados/verificarAlertas`)
             .then(function (response) {
                 return response.json();
             })
