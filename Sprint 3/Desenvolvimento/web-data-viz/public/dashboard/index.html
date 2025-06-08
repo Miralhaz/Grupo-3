@@ -33,17 +33,10 @@
     </section>
     <section class="indicadores">
         <div class="container">
-            <h1> DashBoard | Sensores da Frota
-                <br>
-                <br>
-                <div class="topo">
-                    <div class="nome-user">
-                        Olá, <span id="usuario_ativo"></span>
-                    </div>
-                    <div  class="icone-refresh">
-                        <button style="background-color: transparent; border: none; color: navy; cursor: pointer;" onclick="recarregarPagina()" class="material-symbols-outlined">refresh</button>
-                    </div>
-                </div>
+            <div class="topo-itens">
+                <h1> DashBoard | Sensores da Frota</h1>
+                <div class="nome-user">Olá, <span id="usuario_ativo"></span></div>
+            </div>
             </h1>
             <div class="all-cards">
                 <div class="card">
@@ -57,6 +50,10 @@
                 <div class="card">
                     <h3>Status Alerta</h3>
                     <h2 id="status_alerta">0</h2>
+                </div>
+                <div class="icone-refresh" onclick="recarregarPagina()">
+                    <button style="background-color: transparent; border: none; color: navy; cursor: pointer;"
+                     class="material-symbols-outlined" id="btn-recarregar">refresh</button>
                 </div>
             </div>
         </div>
@@ -171,7 +168,7 @@
         usuario_ativo.innerHTML = 'usuário'
     }
 
-    function recarregarPagina(){
+    function recarregarPagina() {
         location.reload()
     }
 

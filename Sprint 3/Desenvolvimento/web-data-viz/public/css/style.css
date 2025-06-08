@@ -72,31 +72,46 @@ section.indicadores .topo {
     flex-direction: row;
 }
 
-section.indicadores .nome-user {
+.nome-user {
+    display: flex;
     border: solid 1px navy;
     box-shadow: 4px 4px 4px navy;
     border-radius: 10px;
-    padding: 20 px;
-    margin-right: 30px;
+    padding: 15px;
+    height: 70px;
     text-align: center;
     color: navy;
-    max-width: 300px;
+    font-size: 25px;
+    align-items: center;
+    margin-left: 40px;
 }
 
 section.indicadores .icone-refresh {
+    display: flex;
     border: solid 1px navy;
     box-shadow: 4px 4px 4px navy;
-    border-radius: 10px;
+    border-radius: 50%;
     padding: 20px;
     margin-right: 30px;
-    text-align: center;
     color: navy;
-    max-width: 300px;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    cursor: pointer;
+    transition: 0.3s;
+    justify-content: center;
+}
+#btn-recarregar{
+    transform: scale(1.5);
+}
+section.indicadores .icone-refresh:hover{
+    transform: scale(1.1);
 }
 
 section.indicadores .all-cards {
     display: flex;
     margin-left: 30px;
+    align-items: center;
 }
 
 section.indicadores .card {
@@ -158,8 +173,8 @@ section.veiculos-all .legenda-veiculos {
 
 section.legenda {
     position: absolute;
-    right: 120px;
-    top: 70px;
+    margin-left: 930px;
+    top: -10px;
 }
 
 /* LEGENDA */
@@ -324,6 +339,7 @@ section.informacoes .all-informacoes-card .tituloInfo {
     margin-bottom: 10px;
     font-weight: 800;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 section.informacoes .all-informacoes-card p {
@@ -428,4 +444,9 @@ section.indicadores h3 {
 
 .div_telefone #h3_telefone {
     margin-left: 10px;
+}
+.topo-itens{
+    display: flex;
+    align-items: center;
+    gap: 230px;
 }
