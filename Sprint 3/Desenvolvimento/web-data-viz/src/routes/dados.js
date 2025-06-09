@@ -30,6 +30,10 @@ router.post("/darBaixa/:sensorId", function (req, res) {
     dadosController.darBaixa(req, res);
 });
 
+router.get("/pegarSensores", function(req, res) {
+    dadosController.pegarSensores(req, res);
+}); 
+
 
 
 module.exports = router;

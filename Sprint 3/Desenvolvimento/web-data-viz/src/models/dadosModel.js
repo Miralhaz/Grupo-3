@@ -36,6 +36,11 @@ function darBaixa(sensorId) {
     return database.executar(instrucaoSql);
 }
 
+function pegarSensores() {
+    var instrucaoSql = `select count(idSensor) as total_sensores from sensor;`
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     puxar,
     maiorTemperatura,
@@ -43,5 +48,6 @@ module.exports = {
     verificarAlertas,
     checarAlertas,
     darBaixa,
-    pegarTelefone
+    pegarTelefone,
+    pegarSensores
 };

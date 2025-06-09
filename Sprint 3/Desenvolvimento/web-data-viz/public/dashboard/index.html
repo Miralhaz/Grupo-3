@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="verificarAlertas()" id="fundo-sem-scroll">
+<body onload="pegarSensores()" id="fundo-sem-scroll">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -60,43 +60,7 @@
     </section>
     <section class="veiculos-all">
         <div class="container">
-            <div class="veiculos" onclick="window.location.href='dashboard.html'">
-                <h1 onclick="enviarId(1)" id="1">1</h1>
-                <h1 onclick="enviarId(2)" id="2">2</h1>
-                <h1 onclick="enviarId(3)" id="3">3</h1>
-                <h1 onclick="enviarId(4)" id="4">4</h1>
-                <h1 onclick="enviarId(5)" id="5">5</h1>
-                <h1 onclick="enviarId(6)" id="6">6</h1>
-                <h1 onclick="enviarId(7)" id="7">7</h1>
-                <h1 onclick="enviarId(8)" id="8">8</h1>
-                <h1 onclick="enviarId(9)" id="9">9</h1>
-                <h1 onclick="enviarId(10)" id="10">10</h1>
-                <h1 onclick="enviarId(11)" id="11">11</h1>
-                <h1 onclick="enviarId(12)" id="12">12</h1>
-                <h1 onclick="enviarId(13)" id="13">13</h1>
-                <h1 onclick="enviarId(14)" id="14">14</h1>
-                <h1 onclick="enviarId(15)" id="15">15</h1>
-                <h1 onclick="enviarId(16)" id="16">16</h1>
-                <h1 onclick="enviarId(17)" id="17">17</h1>
-                <h1 onclick="enviarId(18)" id="18">18</h1>
-                <h1 onclick="enviarId(19)" id="19">19</h1>
-                <h1 onclick="enviarId(20)" id="20">20</h1>
-                <h1 onclick="enviarId(21)" id="21">21</h1>
-                <h1 onclick="enviarId(22)" id="22">22</h1>
-                <h1 onclick="enviarId(23)" id="23">23</h1>
-                <h1 onclick="enviarId(24)" id="24">24</h1>
-                <h1 onclick="enviarId(25)" id="25">25</h1>
-                <h1 onclick="enviarId(26)" id="26">26</h1>
-                <h1 onclick="enviarId(27)" id="27">27</h1>
-                <h1 onclick="enviarId(28)" id="28">28</h1>
-                <h1 onclick="enviarId(29)" id="29">29</h1>
-                <h1 onclick="enviarId(30)" id="30">30</h1>
-                <h1 onclick="enviarId(31)" id="31">31</h1>
-                <h1 onclick="enviarId(32)" id="32">32</h1>
-                <h1 onclick="enviarId(33)" id="33">33</h1>
-                <h1 onclick="enviarId(34)" id="34">34</h1>
-                <h1 onclick="enviarId(35)" id="35">35</h1>
-                <h1 onclick="enviarId(36)" id="36">36</h1>
+            <div class="veiculos" id="div_veiculos" onclick="window.location.href='dashboard.html'">
             </div>
         </div>
 
@@ -118,6 +82,30 @@
 
 </body>
 <script>
+    let totalSensores = 0;
+    function pegarSensores() {
+        fetch(`/dados/pegarSensores`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                totalSensores = data;
+                total_sensores.innerHTML = totalSensores[0].total_sensores;
+                console.log(totalSensores[0].total_sensores);
+                gerarSensores();
+                verificarAlertas();
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
+
+    function gerarSensores(){        
+        for(let i = 1; i <= totalSensores[0].total_sensores; i++){
+            div_veiculos.innerHTML += `<h1 onclick="enviarId(${i})" id="${i}">${i}</h1>`;
+        }
+    }
+
     //vou deixar o script aqui pq fica melhor pra arrumar
     function enviarId(sensorId) {
         console.log('Sensor Selecionado:', sensorId);
@@ -137,7 +125,7 @@
             .then(function (data) {
                 alertas = data
                 console.log(alertas);
-                status_seguro.innerHTML = 36 - alertas.length;
+                status_seguro.innerHTML = totalSensores[0].total_sensores - alertas.length;
                 status_alerta.innerHTML = alertas.length;
                 tratarAlertas();
             })

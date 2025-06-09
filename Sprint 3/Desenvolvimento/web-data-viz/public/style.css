@@ -538,6 +538,7 @@ footer .bottom-footer p{
     transition: 0.3s;
     margin-bottom: 40px;
     cursor: pointer;
+    margin-right: 10px;
 }
 .economizar button:hover{
     background-color: navy;
