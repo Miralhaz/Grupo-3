@@ -52,22 +52,22 @@ function ativarBotao(){
     }
 }
 
-var valorMedia = [];
-function puxarMedia() {
+var temperaturaMaior = [];
+function maiorTemperatura() {
     let sensorId = sessionStorage.getItem("SENSOR_SELECIONADO");
     console.log('Sensor Média:', sensorId);
 
-    fetch(`/dados/puxarMedia/${sensorId}`)
+    fetch(`/dados/maiorTemperatura/${sensorId}`)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            media = data
-            console.log('Resultado da função puxar média: ', valorMedia);
+            valor = data
+            console.log('Resultado da função puxar média: ', temperaturaMaior);
 
-            valorMedia.push(media[0].media_temperatura)
+            temperaturaMaior.push(valor[0].maior_temperatura)
 
-            media_temperatura.innerHTML = `${valorMedia}°C`
+            kpimaiorTemperatura.innerHTML = `${temperaturaMaior}°C`
         })
         .catch(function (err) {
             console.log(err);

@@ -6,8 +6,8 @@ router.get("/puxar/:sensorId", function (req, res) {
     dadosController.puxar(req, res);
 });
 
-router.get("/puxarMedia/:sensorId", function(req, res) {
-    dadosController.puxarMedia(req, res);
+router.get("/maiorTemperatura/:sensorId", function(req, res) {
+    dadosController.maiorTemperatura(req, res);
 });
 
 router.get("/puxarPlaca/:sensorId", function(req, res) {

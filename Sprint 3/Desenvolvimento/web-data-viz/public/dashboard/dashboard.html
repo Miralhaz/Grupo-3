@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body onload="puxar(), puxarMedia(), puxarPlaca(), checarAlertas(), pegarTelefone()" id="fundo-sem-scroll">
+<body onload="puxar(), maiorTemperatura(), puxarPlaca(), checarAlertas(), pegarTelefone()" id="fundo-sem-scroll">
     <section class="header">
         <div class="header-lateral">
             <div class="barra" onclick="window.location.href='index.html'">
@@ -60,10 +60,10 @@
                             <h3 id="alertas_dia"></h3>
                         </div>
                         <div class="card-indicador">
-                            <p>Média de Temperatura (24h)</p>
+                            <p>Maior Temperatura(últimas 24h)</p>
                             <div class="text">
                                 <span class="material-symbols-outlined">warning</span>
-                                <h2 id="media_temperatura"></h2>
+                                <h2 id="kpimaiorTemperatura"></h2>
                             </div>
                         </div>
                     </div>

@@ -19,9 +19,9 @@ function puxar(req, res) {
         );
 };
 
-function puxarMedia(req, res) {
+function maiorTemperatura(req, res) {
     const sensorId = req.params.sensorId;
-    dadosModel.puxarMedia(sensorId)
+    dadosModel.maiorTemperatura(sensorId)
         .then(function (dados) {
             if (dados.length > 0) {
                 res.status(200).json(dados);
@@ -130,7 +130,7 @@ function verificarAlertas(req, res) {
 
 module.exports = {
     puxar,
-    puxarMedia,
+    maiorTemperatura,
     puxarPlaca,
     verificarAlertas,
     checarAlertas,
