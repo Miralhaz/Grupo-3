@@ -53,7 +53,7 @@
                 </div>
                 <div class="icone-refresh" onclick="recarregarPagina()">
                     <button style="background-color: transparent; border: none; color: navy; cursor: pointer;"
-                     class="material-symbols-outlined" id="btn-recarregar">refresh</button>
+                        class="material-symbols-outlined" id="btn-recarregar">refresh</button>
                 </div>
             </div>
         </div>
@@ -171,6 +171,11 @@
     function recarregarPagina() {
         location.reload()
     }
+
+    setInterval(function () {
+        location.reload();
+    }, 120000);
+
 
 </script>
 

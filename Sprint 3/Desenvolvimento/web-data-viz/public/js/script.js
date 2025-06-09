@@ -227,14 +227,14 @@ function gerarGraficoPizza() {
     new Chart(cty, {
         type: 'pie',
         data: {
-            labels: ['Risco', 'Atenção', 'Crítico'],
+            labels: ['Atenção','Risco', 'Crítico'],
             datasets: [{
                 label: 'Total de Alertas',
                 data: [alertaAtencao, alertaRisco, alertaCritico],
                 borderWidth: 1,
                 backgroundColor: [
-                    'orange',
                     '#fafa34ef',
+                    'orange',
                     'red'
                 ],
                 borderColor: 'white',

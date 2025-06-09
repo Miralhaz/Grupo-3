@@ -392,7 +392,7 @@ section .info-card .blocoAzul {
     display: flex;
     height: 17px;
     width: 17px;
-    background-color: navy;
+    background-color: #fafa34ef;
 }
 
 section .info-card .alertas {
@@ -416,13 +416,13 @@ section .info-card .alertas {
 section .info-card .blocoVermelho {
     height: 17px;
     width: 17px;
-    background-color: #FF0000
+    background-color: red;
 }
 
 section .info-card .blocoLaranja {
     height: 17px;
     width: 17px;
-    background-color: #fea42e
+    background-color: orange;
 }
 
 #placa_caminhao,
