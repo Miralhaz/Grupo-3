@@ -13,9 +13,11 @@ body {
     background-color: white;
 }
 
+/*
 #fundo-sem-scroll {
     overflow: hidden;
 }
+*/
 
 .container {
     max-width: 1280px;
@@ -63,8 +65,8 @@ section.header .caminhoes-option option {
 /* INDICADORES */
 section.indicadores h1 {
     color: navy;
-    font-size: 35px;
-    padding: 30px;
+    font-size: 32px;
+    padding: 20px;
 }
 
 section.indicadores .topo {
@@ -83,7 +85,7 @@ section.indicadores .topo {
     color: navy;
     font-size: 25px;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 section.indicadores .icone-refresh {
@@ -127,7 +129,6 @@ section.indicadores .card {
 section.indicadores .card h2 {
     font-size: 40px;
     margin-top: 5px;
-
 }
 
 /* VEÍCULOS */
@@ -164,9 +165,9 @@ section.veiculos-all .legenda-veiculos {
     box-shadow: 4px 4px 4px navy;
     position: relative;
     width: 300px;
-    height: 150px;
+    height: 130px;
     border-radius: 10px;
-    padding: 22px;
+    padding: 13px;
     margin-right: 11vh;
     margin-top: 16.5vh;
 }
@@ -231,7 +232,7 @@ section.indicadores .container {
 }
 
 section.indicadores .text span {
-    font-size: 30px;
+    font-size: 27px;
 }
 
 section.indicadores p {
@@ -448,5 +449,5 @@ section.indicadores h3 {
 .topo-itens{
     display: flex;
     align-items: center;
-    gap: 230px;
+    gap: 160px;
 }

@@ -151,7 +151,7 @@ function alertasDias() {
             maisAlertas = alertasSemanais[i]
 
             if(i == 0){
-                diaDaSemana = 'Sengunda-feira'
+                diaDaSemana = 'Segunda-feira'
             }else if(i == 1){
                 diaDaSemana = 'Terça-feira'
             }else if(i == 2){
